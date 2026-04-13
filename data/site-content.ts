@@ -1,0 +1,287 @@
+export type NavLink = {
+  href: string;
+  label: string;
+};
+
+export type HeroCampaignSlide = {
+  alignment: "left-model" | "right-copy";
+  backgroundAlt: string;
+  backgroundImage: string;
+  captionTags: string[];
+  copy: string[];
+  id: string;
+  label: string;
+  modelAlt: string;
+  modelImage: string;
+  signature: string;
+  title?: string;
+  variant: "campaign";
+};
+
+export type HeroEditorialSlide = {
+  alignment: "left-model" | "right-copy";
+  backgroundAlt: string;
+  backgroundImage: string;
+  body: string[];
+  captionTags: string[];
+  centerCard: {
+    image: string;
+    imageAlt: string;
+    subtitle: string;
+    title: string;
+  };
+  id: string;
+  leftCard: {
+    buttonLabel: string;
+    image: string;
+    imageAlt: string;
+    kicker: string;
+    meta: string;
+  };
+  label: string;
+  signature: string;
+  variant: "editorial";
+};
+
+export type HeroSlide = HeroCampaignSlide | HeroEditorialSlide;
+
+export type HeroPrimaryContent = {
+  slides: HeroSlide[];
+};
+
+export type ProductItem = {
+  image: string;
+  imageAlt: string;
+  layout: "wide" | "tall" | "compact" | "narrow";
+  name: string;
+  objectPosition?: string;
+  price: string;
+  sublabel: string;
+};
+
+export type ProductDetailFrame = {
+  image: string;
+  imageAlt: string;
+  objectPosition?: string;
+};
+
+export type ProductShowcaseContent = {
+  heading: string;
+  note: string;
+  detailFrames: ProductDetailFrame[];
+  items: ProductItem[];
+};
+
+export type NewsletterContent = {
+  description: string;
+  heading: string;
+  placeholder: string;
+};
+
+export type StoreSectionContent = {
+  image: string;
+  imageAlt: string;
+  panels: {
+    description: string;
+    icon: "clock" | "pin" | "phone";
+    title: string;
+  }[];
+};
+
+export type FooterColumn = {
+  links: {
+    href: string;
+    label: string;
+  }[];
+  title: string;
+};
+
+export type SocialLink = {
+  href: string;
+  icon: "facebook" | "instagram" | "pinterest" | "youtube";
+  label: string;
+};
+
+const unsplashDownload = (photoId: string, width: number) =>
+  `https://unsplash.com/photos/${photoId}/download?force=true&w=${width}&q=80`;
+
+export const brandName = "VAGANZA";
+
+export const navigationLinks: NavLink[] = [
+  { href: "#campaign", label: "SPRING SUMMER 2026" },
+  { href: "#story", label: "ABOUT US" },
+  { href: "#story", label: "MAN" },
+  { href: "#shop", label: "SHOP" },
+  { href: "#contact", label: "CONTACT" },
+];
+
+const ruinsBackdrop = unsplashDownload("3hKDPfDk194", 2200);
+
+export const heroPrimary: HeroPrimaryContent = {
+  slides: [
+    {
+      id: "campaign",
+      variant: "campaign",
+      alignment: "left-model",
+      label: "Campaign 01",
+      backgroundImage: ruinsBackdrop,
+      backgroundAlt: "Ancient stone temple ruins reflected in still water",
+      modelImage: unsplashDownload("oIDOtEm9irE", 900),
+      modelAlt: "Full body fashion portrait in neutral tailoring",
+      copy: [
+        "Beyond the outer court of forgotten stone, Spring Summer 2026 follows a quieter form of permanence.",
+        "Sun-washed tailoring, softened leather, and measured silhouettes move with the calm conviction of modern heritage.",
+        "Each piece is built to travel lightly, age beautifully, and leave a lasting trace without noise.",
+      ],
+      signature: "Own your story.",
+      captionTags: ["#StoneAndLight", "#VaganzaSS26"],
+    },
+    {
+      id: "story",
+      variant: "editorial",
+      alignment: "right-copy",
+      label: "Campaign 02",
+      backgroundImage: ruinsBackdrop,
+      backgroundAlt: "Ancient ruins with deep shadows and editorial fashion composition",
+      leftCard: {
+        image: unsplashDownload("I5vlrx9OCbc", 900),
+        imageAlt: "Editorial portrait of a model wearing a light hat",
+        kicker: "VAGANZA",
+        meta: "Editorial Chapter 03",
+        buttonLabel: "LOOKBOOK",
+      },
+      centerCard: {
+        image: unsplashDownload("LfxQ83wxzMM", 1200),
+        imageAlt: "Male model standing in beige editorial styling",
+        title: "SPRING | SUMMER 2026",
+        subtitle: "SHOW THE COLLECTION",
+      },
+      body: [
+        "Our pursuit of direction begins with restraint.",
+        "Each season is shaped by place, proportion, and the quiet confidence of materials that grow richer with time.",
+        "Summer 2026 reflects a man in motion, dressed for light, shadow, and continuity across changing chapters.",
+        "The VAGANZA line is rooted in discretion and clarity, forming the foundation of a wardrobe built to endure.",
+        "Proceed as personal. The path is chosen. Own your story.",
+      ],
+      signature: "Proceed with presence.",
+      captionTags: ["#VaganzaMan", "#EditorialStudy"],
+    },
+  ],
+};
+
+export const productShowcase: ProductShowcaseContent = {
+  heading: "VAGANZA LEATHER",
+  note: "THE POWER OF TRUE LEATHER",
+  detailFrames: [
+    {
+      image: unsplashDownload("zJsQgY7sAJ8", 900),
+      imageAlt: "Close crop of leather tailoring in warm brown tones",
+      objectPosition: "center center",
+    },
+    {
+      image: unsplashDownload("zJsQgY7sAJ8", 900),
+      imageAlt: "Detail crop of leather tailoring seam",
+      objectPosition: "center bottom",
+    },
+  ],
+  items: [
+    {
+      layout: "wide",
+      sublabel: "Vintage Vaganza leather bag",
+      name: "Eskitme Hakiki Deri spor model el cantasi",
+      price: "7.900 TL",
+      image: unsplashDownload("_doTxp9AS4w", 900),
+      imageAlt: "Brown leather handbag on a wooden bench",
+      objectPosition: "center center",
+    },
+    {
+      layout: "tall",
+      sublabel: "Leather goods",
+      name: "Eskitme Hakiki Deri spor canta set",
+      price: "24.500 TL",
+      image: unsplashDownload("mNRRAB4jhJg", 900),
+      imageAlt: "Brown leather goods arranged as a premium set",
+      objectPosition: "center center",
+    },
+    {
+      layout: "compact",
+      sublabel: "Travel bag",
+      name: "Eskitme Hakiki Deri spor model canta",
+      price: "7.500 TL",
+      image: unsplashDownload("mNRRAB4jhJg", 900),
+      imageAlt: "Brown leather duffle bag on a wooden table",
+      objectPosition: "center center",
+    },
+    {
+      layout: "narrow",
+      sublabel: "Fragrance",
+      name: "Pour Homme Extrait",
+      price: "4.900 TL",
+      image: unsplashDownload("Y0xXazo2PmY", 900),
+      imageAlt: "Glass perfume bottle on dark fabric",
+      objectPosition: "center center",
+    },
+  ],
+};
+
+export const newsletterContent: NewsletterContent = {
+  heading: "NEWSLETTER",
+  description:
+    "Join our private list for collection previews, store events, atelier notes, and early access to limited releases.",
+  placeholder: "Enter your email address",
+};
+
+export const storeSection: StoreSectionContent = {
+  image: unsplashDownload("IbS5MDLhWj4", 1500),
+  imageAlt: "Warm luxury interior with wood and upholstered lounge chairs",
+  panels: [
+    {
+      icon: "phone",
+      title: "YOUR NEAREST STORE",
+      description: "Abdi Ipekci Caddesi 27, Nisantasi, Istanbul",
+    },
+    {
+      icon: "clock",
+      title: "OPENING HOURS",
+      description: "Monday - Saturday 10:00 - 19:30",
+    },
+    {
+      icon: "pin",
+      title: "FIND ANOTHER STORE",
+      description: "Discover additional boutiques and private appointments.",
+    },
+  ],
+};
+
+export const footerColumns: FooterColumn[] = [
+  {
+    title: "REGION / LANGUAGE",
+    links: [{ href: "#", label: "Rest of the World | Change" }],
+  },
+  {
+    title: "AT YOUR SERVICE",
+    links: [
+      { href: "#contact", label: "Contact Us" },
+      { href: "#contact", label: "Store Locator" },
+    ],
+  },
+  {
+    title: "COMPANY",
+    links: [{ href: "#story", label: "Our Story" }],
+  },
+  {
+    title: "LEGAL & COOKIES",
+    links: [
+      { href: "#", label: "Terms & Conditions" },
+      { href: "#", label: "Privacy Policy" },
+      { href: "#", label: "Extended Cookie Policy" },
+    ],
+  },
+];
+
+export const socialLinks: SocialLink[] = [
+  { href: "#", icon: "instagram", label: "Instagram" },
+  { href: "#", icon: "pinterest", label: "Pinterest" },
+  { href: "#", icon: "facebook", label: "Facebook" },
+  { href: "#", icon: "youtube", label: "YouTube" },
+];

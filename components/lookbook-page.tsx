@@ -83,9 +83,10 @@ export function LookbookPage() {
 
   return (
     <>
-      <div className="flex min-h-screen flex-col bg-white">
-      <main className="flex-1 overflow-x-hidden text-[#2e2620]">
+      <div className="bg-white text-[#2e2620]">
         <LookbookVideoHero content={lookbookContent.hero} />
+        
+        <main className="overflow-x-hidden">
 
         <section className="grid gap-0 lg:grid-cols-[1fr_1.23fr_1fr]">
           <div className="flex flex-col">
@@ -205,7 +206,7 @@ export function LookbookPage() {
           </div>
         </div>
       </footer>
-      </div>
+    </div>
     </>
   );
 }

@@ -84,13 +84,13 @@ function EditorialHeroSlide({ slide }: { slide: HeroEditorialSlide }) {
   return (
     <div
       id={slide.id}
-      className="relative section-shell flex min-h-[96svh] items-center py-20 sm:py-24 lg:min-h-screen lg:py-0"
+      className="relative section-shell flex min-h-[96svh] items-center py-24 sm:py-28 lg:min-h-screen lg:py-0"
     >
-      <div className="relative mx-auto grid w-full max-w-[76rem] grid-cols-1 items-center gap-6 sm:grid-cols-3 sm:gap-4 lg:grid-cols-[0.92fr_1.12fr_0.92fr] lg:gap-8">
+      <div className="relative mx-auto grid w-full max-w-[84rem] grid-cols-1 items-center gap-8 sm:grid-cols-3 sm:gap-6 lg:grid-cols-[1fr_1.15fr_0.85fr] lg:gap-10">
 
         {/* Left card */}
         <article className="group relative z-20 mx-auto w-full max-w-[20rem] overflow-hidden border border-white/10 bg-black/20 shadow-editorial sm:max-w-none">
-          <div className="relative aspect-[0.72] min-h-[12rem] sm:min-h-0 lg:min-h-[21rem]">
+          <div className="relative aspect-[0.72] min-h-[16rem] sm:min-h-[20rem] lg:min-h-[24rem]">
             <Image
               src={slide.leftCard.image}
               alt={slide.leftCard.imageAlt}
@@ -100,14 +100,14 @@ function EditorialHeroSlide({ slide }: { slide: HeroEditorialSlide }) {
               className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.03]"
             />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.1)_0%,rgba(0,0,0,0.16)_42%,rgba(0,0,0,0.74)_100%)]" />
-            <div className="absolute inset-x-4 bottom-4 sm:inset-x-3 sm:bottom-4 lg:inset-x-5 lg:bottom-5">
-              <div className="flex items-center justify-between text-[7px] sm:text-[8px] uppercase tracking-[0.38em] text-white/68">
+            <div className="absolute inset-x-4 bottom-5 sm:inset-x-5 sm:bottom-6 lg:inset-x-8 lg:bottom-10">
+              <div className="flex items-center justify-between text-[6.5px] sm:text-[7.5px] md:text-[8.5px] lg:text-[10px] uppercase tracking-[0.38em] text-white/68">
                 <span>{slide.leftCard.kicker}</span>
                 <span>{slide.leftCard.meta}</span>
               </div>
               <button
                 type="button"
-                className="mt-3 sm:mt-4 border border-white/20 bg-white/10 px-3 py-1.5 text-[7px] sm:px-4 sm:py-2 sm:text-[8px] lg:px-5 lg:py-2.5 lg:text-[9px] uppercase tracking-[0.42em] text-white/90 backdrop-blur-md hover:bg-white/20 hover:border-white/40 hover:scale-[1.03] transition-all duration-300"
+                className="mt-3 sm:mt-4 md:mt-5 border border-white/20 bg-white/10 px-3 py-1.5 text-[6.5px] sm:px-4 sm:py-2 sm:text-[7.5px] lg:px-5 lg:py-2.5 lg:text-[9.5px] uppercase tracking-[0.42em] text-white/90 backdrop-blur-md hover:bg-white/20 hover:border-white/40 hover:scale-[1.03] transition-all duration-300"
               >
                 {slide.leftCard.buttonLabel}
               </button>
@@ -117,7 +117,7 @@ function EditorialHeroSlide({ slide }: { slide: HeroEditorialSlide }) {
 
         {/* Center card */}
         <article className="relative z-10 mx-auto w-full max-w-[20rem] overflow-hidden border border-white/8 bg-black/20 shadow-editorial sm:max-w-none">
-          <div className="relative aspect-[0.78] min-h-[14rem] sm:min-h-0 lg:min-h-[36rem]">
+          <div className="relative aspect-[0.78] min-h-[18rem] sm:min-h-[22rem] lg:min-h-[36rem]">
             <Image
               src={slide.centerCard.image}
               alt={slide.centerCard.imageAlt}
@@ -127,11 +127,11 @@ function EditorialHeroSlide({ slide }: { slide: HeroEditorialSlide }) {
               className="object-cover object-center"
             />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.06)_0%,rgba(0,0,0,0.16)_42%,rgba(0,0,0,0.5)_100%)]" />
-            <div className="absolute inset-x-4 bottom-8 text-center sm:inset-x-3 sm:bottom-10 lg:inset-x-6 lg:bottom-16">
-              <h2 className="font-serif text-[1.2rem] sm:text-[1.5rem] lg:text-[2.5rem] uppercase tracking-[0.08em] text-white">
+            <div className="absolute inset-x-4 bottom-10 text-center sm:inset-x-5 sm:bottom-12 md:bottom-16 lg:bottom-24">
+              <h2 className="font-serif text-[1.1rem] sm:text-[1.3rem] md:text-[1.6rem] lg:text-[2.6rem] uppercase tracking-[0.08em] text-white">
                 {slide.centerCard.title}
               </h2>
-              <p className="mt-2 sm:mt-3 text-[8px] sm:text-[9px] lg:text-[10px] uppercase tracking-[0.4em] text-white/74">
+              <p className="mt-2 text-[7px] sm:mt-3 sm:text-[8.5px] lg:mt-4 lg:text-[11px] uppercase tracking-[0.4em] text-white/74">
                 {slide.centerCard.subtitle}
               </p>
             </div>
@@ -188,7 +188,7 @@ export function HeroPrimary({ content }: HeroPrimaryProps) {
         fill
         priority
         sizes="100vw"
-        className="relative z-0 object-contain lg:object-cover object-center motion-safe:animate-slow-zoom"
+        className="relative z-0 object-cover object-center motion-safe:animate-slow-zoom"
       />
 
       {activeSlide.variant === "campaign" ? (

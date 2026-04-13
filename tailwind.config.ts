@@ -19,7 +19,7 @@ const config = {
         line: "rgba(255,255,255,0.12)",
       },
       fontFamily: {
-        sans: ["Helvetica Neue", "Arial", "sans-serif"],
+        sans: ["var(--font-montserrat)", "Helvetica Neue", "Arial", "sans-serif"],
         serif: ["Baskerville", "Times New Roman", "serif"],
       },
       keyframes: {

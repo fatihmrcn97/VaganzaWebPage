@@ -141,7 +141,7 @@ export const heroPrimary: HeroPrimaryContent = {
       variant: "editorial",
       alignment: "right-copy",
       label: "Campaign 02",
-      backgroundImage: "/1V6A2226.jpg",
+      backgroundImage: "/1V6A2000_kopya.jpg",
       backgroundAlt: "Vaganza editorial background",
       leftCard: {
         image: "/1V6A2496_kopya.jpg",

@@ -55,17 +55,18 @@ function SocialIcon({
 export function Footer({ brand, columns, socialLinks }: FooterProps) {
   return (
     <footer className="bg-[#181414] text-white/72">
-      <div className="section-shell py-14 sm:py-16">
-        <div className="border-t border-white/10 pt-12">
-          <div className="grid gap-10 md:grid-cols-2 xl:grid-cols-[1fr_1fr_1fr_1.2fr_1fr]">
+      <div className="section-shell py-10 sm:py-14 lg:py-16">
+        <div className="border-t border-white/10 pt-8 sm:pt-12">
+          {/* Columns: single col on mobile, 2 on sm, full spread on xl */}
+          <div className="grid grid-cols-2 gap-8 sm:gap-10 md:grid-cols-3 xl:grid-cols-[1fr_1fr_1fr_1.2fr_1fr]">
             {columns.map((column) => (
               <div key={column.title}>
-                <p className="text-[10px] uppercase tracking-[0.45em] text-white/55">
+                <p className="text-[9px] uppercase tracking-[0.35em] text-white/55 sm:text-[10px] sm:tracking-[0.45em]">
                   {column.title}
                 </p>
-                <div className="mt-4 space-y-1">
+                <div className="mt-3 space-y-1 sm:mt-4">
                   {column.links.map((link) => (
-                    <Link key={link.label} href={link.href} className="footer-link block">
+                    <Link key={link.label} href={link.href} className="footer-link block text-[11px] sm:text-[12px]">
                       {link.label}
                     </Link>
                   ))}
@@ -73,17 +74,17 @@ export function Footer({ brand, columns, socialLinks }: FooterProps) {
               </div>
             ))}
 
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.45em] text-white/55">
+            <div className="col-span-2 sm:col-span-1">
+              <p className="text-[9px] uppercase tracking-[0.35em] text-white/55 sm:text-[10px] sm:tracking-[0.45em]">
                 FOLLOW US
               </p>
-              <div className="mt-4 flex items-center gap-3">
+              <div className="mt-3 flex items-center gap-2 sm:mt-4 sm:gap-3">
                 {socialLinks.map((link) => (
                   <Link
                     key={link.label}
                     href={link.href}
                     aria-label={link.label}
-                    className="flex h-8 w-8 items-center justify-center rounded-full border border-white/18 text-white/70 hover:border-white/40 hover:text-white"
+                    className="flex h-9 w-9 items-center justify-center rounded-full border border-white/18 bg-white/5 text-white/70 hover:border-[#C5A059] hover:bg-[#C5A059]/10 hover:text-[#C5A059] hover:-translate-y-1 hover:scale-105 transition-all duration-300 sm:h-10 sm:w-10 lg:h-12 lg:w-12"
                   >
                     <SocialIcon icon={link.icon} />
                   </Link>
@@ -92,19 +93,19 @@ export function Footer({ brand, columns, socialLinks }: FooterProps) {
             </div>
           </div>
 
-          <div className="mt-14 flex flex-col gap-5 border-t border-white/10 pt-5 text-[10px] tracking-[0.14em] text-white/32 lg:flex-row lg:items-center lg:justify-between">
-            <p className="font-serif text-sm uppercase tracking-[0.35em] text-white/62">
+          <div className="mt-10 flex flex-col gap-4 border-t border-white/10 pt-6 text-[9px] tracking-[0.14em] text-white/32 sm:mt-14 sm:gap-5 sm:pt-8 sm:text-[10px] lg:flex-row lg:items-center lg:justify-between lg:mt-16">
+            <p className="font-serif text-[13px] uppercase tracking-[0.35em] text-[#C5A059] sm:text-sm lg:text-base">
               {brand}
             </p>
-            <p className="max-w-4xl leading-6">
+            <p className="max-w-4xl leading-5 sm:leading-6">
               (C) 2026 VAGANZA. Via modern heritage, crafted for quiet travel. All rights reserved.
             </p>
           </div>
         </div>
       </div>
 
-      <div className="h-16 bg-[#b48b6c]" />
-      <div className="h-4 bg-[#140f0f]" />
+      <div className="h-12 bg-[#b48b6c] sm:h-16" />
+      <div className="h-3 bg-[#140f0f] sm:h-4" />
     </footer>
   );
 }

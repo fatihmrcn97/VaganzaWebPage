@@ -34,8 +34,9 @@ function StoreIcon({ icon }: { icon: "clock" | "pin" | "phone" }) {
 export function StoreSection({ content }: StoreSectionProps) {
   return (
     <section id="contact" className="bg-night">
-      <div className="grid lg:grid-cols-[1.12fr_0.88fr]">
-        <div className="relative min-h-[18rem]">
+      {/* Stacks on mobile, side-by-side on lg */}
+      <div className="grid grid-cols-1 lg:grid-cols-[1.12fr_0.88fr]">
+        <div className="relative min-h-[14rem] sm:min-h-[18rem] md:min-h-[22rem] lg:min-h-0">
           <Image
             src={content.image}
             alt={content.imageAlt}
@@ -46,15 +47,15 @@ export function StoreSection({ content }: StoreSectionProps) {
           <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/10" />
         </div>
 
-        <div className="bg-[#211b1a] px-6 py-10 sm:px-8 lg:px-12 lg:py-12">
-          <div className="grid gap-8 sm:grid-cols-3 lg:grid-cols-1 xl:grid-cols-3 xl:gap-10">
+        <div className="bg-[#211b1a] px-5 py-8 sm:px-8 sm:py-10 lg:px-12 lg:py-12">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-3 sm:gap-8 lg:grid-cols-1 lg:gap-8 xl:grid-cols-3 xl:gap-10">
             {content.panels.map((panel) => (
-              <div key={panel.title} className="space-y-4">
+              <div key={panel.title} className="space-y-3 sm:space-y-4">
                 <StoreIcon icon={panel.icon} />
-                <p className="text-[10px] uppercase tracking-[0.45em] text-white/64">
+                <p className="text-[9px] uppercase tracking-[0.35em] text-white/64 sm:text-[10px] sm:tracking-[0.45em]">
                   {panel.title}
                 </p>
-                <p className="max-w-[15rem] text-sm leading-7 text-white/75">
+                <p className="max-w-[15rem] text-[13px] leading-6 text-white/75 sm:text-sm sm:leading-7">
                   {panel.description}
                 </p>
               </div>

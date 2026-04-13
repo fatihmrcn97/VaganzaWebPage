@@ -1,5 +1,11 @@
-import type { Metadata } from "next";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["300", "400", "500"],
+  variable: "--font-montserrat",
+});
 
 export const metadata: Metadata = {
   title: "VAGANZA | Spring Summer 2026",
@@ -13,8 +19,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body>{children}</body>
+    <html lang="en" className={`${montserrat.variable} scroll-smooth`}>
+      <body className="font-sans">{children}</body>
     </html>
   );
 }

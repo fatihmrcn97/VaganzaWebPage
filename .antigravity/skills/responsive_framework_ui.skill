@@ -1,0 +1,32 @@
+# Responsive Framework UI (Next.js & Tailwind) Skill
+
+This skill guides the construction of premium, high-performance, and fully responsive user interfaces within Next.js environments using Tailwind CSS.
+
+## 1. Responsive Strategy: Mobile-First
+*   **Default State**: Write styles for mobile (`<640px`) first without any prefix.
+*   **Breakpoints**: Progressively enhance using `md:`, `lg:`, and `xl:` for larger screens.
+*   **Fluid Typography**: Use `clamp()` or relative units (`rem`, `vh`, `vw`) for text that scales smoothly without jagged breakpoints.
+*   **Layouts**: Favor Grid for complex sections and Flexbox for simple alignments.
+
+## 2. Framework-Specific Best Practices
+*   **Component Architecture**: Split large components into smaller, reusable UI atoms.
+*   **Client vs Server**: Use `"use client"` only for components requiring hooks (useState, useEffect) or browser APIs. Keep data fetching in Server Components.
+*   **Image Optimization**: Always use `next/image` with proper `priority` for Hero sections and appropriate `sizes` for responsiveness.
+*   **Performance**: Minimize the use of heavy third-party libraries; prioritize native CSS animations and Tailwind utilities.
+
+## 3. Premium Design Standards (Luxury Aesthetic)
+*   **Color Systems**:
+    - Use refined dark modes: Primary Background (`#0a0a0a`), Secondary (`#141414`).
+    - Accent colors: Gold (`#C5A059`), Champagne (`#E7D3A6`), or muted Silver.
+*   **Visual Techniques**:
+    - **Glassmorphism**: `backdrop-blur-xl bg-white/5 border border-white/10`.
+    - **Soft Shadowing**: Avoid heavy black shadows; use `box-shadow` with low opacity and high spread.
+    - **Micro-interactions**: Every interactive element must have a hover/active state (e.g., subtle scale, opacity shift, or underline reveal).
+*   **Typography**: Mix high-contrast fonts. Serif for editorial headers, clean Sans-serif for readability.
+
+## 4. Implementation Workflow
+1.  **Skeleton**: Define the semantic HTML structure first.
+2.  **Mobile Polish**: Style the mobile view completely.
+3.  **Desktop Expansion**: Apply layout changes for wide screens.
+4.  **Interaction Layer**: Add animations (Framer Motion or CSS) and transitions.
+5.  **Audit**: Check accessibility (contrast, aria-labels) and SEO metadata.

@@ -86,9 +86,9 @@ export function LookbookPage() {
       <div className="bg-white text-[#2e2620]">
         <LookbookVideoHero content={lookbookContent.hero} />
         
-        <main className="overflow-x-hidden">
+        <main>
 
-        <section className="grid gap-0 lg:grid-cols-[1fr_1.23fr_1fr]">
+        <section className="grid gap-0 lg:grid-cols-[1fr_1.2fr_1fr]">
           <div className="flex flex-col">
             <EditorialImage
               alt={autumnLeft.alt}
@@ -100,7 +100,7 @@ export function LookbookPage() {
             ) : null}
           </div>
 
-          <div className="relative overflow-hidden">
+          <div className="relative">
             <EditorialImage
               alt={autumnCenter.alt}
               image={autumnCenter.image}
@@ -133,7 +133,7 @@ export function LookbookPage() {
         </section>
 
         <section className="grid grid-cols-1 gap-0 sm:grid-cols-3">
-          <div className="h-[3.75rem] sm:h-[4.5rem] lg:h-[5.25rem]">
+          <div className="aspect-[16/9] sm:aspect-[16/7] lg:aspect-[16/5]">
             <SummerCard
               alt={summerLeft.alt}
               href={summerLeft.href}
@@ -141,7 +141,7 @@ export function LookbookPage() {
               title={summerLeft.title!}
             />
           </div>
-          <div className="h-[3.75rem] sm:h-[4.5rem] lg:h-[5.25rem]">
+          <div className="aspect-[16/9] sm:aspect-[16/7] lg:aspect-[16/5]">
             <SummerCard
               alt={summerCenter.alt}
               href={summerCenter.href}
@@ -149,7 +149,7 @@ export function LookbookPage() {
               title={summerCenter.title!}
             />
           </div>
-          <div className="h-[3.75rem] sm:h-[4.5rem] lg:h-[5.25rem]">
+          <div className="aspect-[16/9] sm:aspect-[16/7] lg:aspect-[16/5]">
             <SummerCard
               alt={summerRight.alt}
               href={summerRight.href}

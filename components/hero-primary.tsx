@@ -53,26 +53,28 @@ function CampaignHeroSlide({ slide }: { slide: HeroCampaignSlide }) {
           </div>
         </div>
 
-        <div
-          className={[
-            "relative flex justify-center",
-            slide.alignment === "left-model"
-              ? "lg:justify-end"
-              : "lg:order-1 lg:justify-start",
-          ].join(" ")}
-        >
-          <div className="relative h-[48vh] w-[15rem] min-w-[11rem] sm:h-[56vh] sm:w-[18rem] lg:h-[72vh] lg:w-[22rem]">
-            <Image
-              src={slide.modelImage}
-              alt={slide.modelAlt}
-              fill
-              priority
-              sizes="(max-width: 1024px) 18rem, 22rem"
-              className="mask-editorial object-contain object-bottom opacity-92 mix-blend-screen"
-            />
-            <div className="absolute inset-x-6 bottom-0 h-20 rounded-full bg-black/45 blur-3xl" />
+        {slide.modelImage ? (
+          <div
+            className={[
+              "relative flex justify-center",
+              slide.alignment === "left-model"
+                ? "lg:justify-end"
+                : "lg:order-1 lg:justify-start",
+            ].join(" ")}
+          >
+            <div className="relative h-[48vh] w-[15rem] min-w-[11rem] sm:h-[56vh] sm:w-[18rem] lg:h-[72vh] lg:w-[22rem]">
+              <Image
+                src={slide.modelImage}
+                alt={slide.modelAlt}
+                fill
+                priority
+                sizes="(max-width: 1024px) 18rem, 22rem"
+                className="mask-editorial object-contain object-bottom opacity-92 mix-blend-screen"
+              />
+              <div className="absolute inset-x-6 bottom-0 h-20 rounded-full bg-black/45 blur-3xl" />
+            </div>
           </div>
-        </div>
+        ) : null}
       </div>
     </div>
   );

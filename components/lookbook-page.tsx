@@ -165,7 +165,7 @@ export function LookbookPage() {
         {/* Newsletter Section */}
         <section
           id="newsletter"
-          className="flex min-h-[180px] items-center justify-center bg-white px-4 text-center text-[#111111] sm:min-h-[200px]"
+          className="flex min-h-[180px] items-center justify-center bg-[#f5f5f5] px-4 text-center text-[#111111] sm:min-h-[220px]"
         >
           <div className="w-full max-w-[500px]">
             <p className="text-[10px] font-medium uppercase tracking-[0.45em] text-[#121212]">
@@ -174,7 +174,7 @@ export function LookbookPage() {
             <p className="mx-auto mt-[12px] max-w-[400px] text-[11px] leading-[1.6] text-[#1f1f1f]">
               {lookbookContent.newsletter.description}
             </p>
-            <div className="mx-auto mt-[20px] flex w-[240px] overflow-hidden border border-[#868686]">
+            <div className="mx-auto mt-[24px] flex w-full max-w-[320px] overflow-hidden border border-[#868686]">
               <label htmlFor="lookbook-email" className="sr-only">
                 Email address
               </label>
@@ -182,11 +182,11 @@ export function LookbookPage() {
                 id="lookbook-email"
                 type="email"
                 placeholder={lookbookContent.newsletter.placeholder}
-                className="h-[32px] min-w-0 flex-1 border-0 px-[10px] text-[10px] text-[#121212] outline-none placeholder:text-[#4f4f4f]"
+                className="h-[38px] min-w-0 flex-1 border-0 bg-white px-[14px] text-[11px] text-[#121212] outline-none placeholder:text-[#4f4f4f]"
               />
               <button
                 type="button"
-                className="flex h-[32px] w-[32px] items-center justify-center bg-black text-[14px] leading-none text-white"
+                className="flex h-[38px] w-[38px] items-center justify-center bg-black text-[16px] leading-none text-white"
               >
                 &rsaquo;
               </button>

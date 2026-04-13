@@ -24,7 +24,7 @@ export function LookbookVideoHero({ content }: LookbookVideoHeroProps) {
 
       <div className="relative aspect-[1240/668] min-h-[24rem] w-full overflow-hidden sm:min-h-[32rem] lg:min-h-[42rem]">
         <div className="absolute inset-0">
-          <div className="absolute left-1/2 top-1/2 h-[56.25vw] min-h-full w-[177.78vh] min-w-full -translate-x-1/2 -translate-y-1/2">
+          <div className="absolute left-1/2 top-0 min-h-full min-w-full -translate-x-1/2 aspect-video">
             <iframe
               className="h-full w-full pointer-events-none"
               src={embedSrc}
@@ -36,10 +36,8 @@ export function LookbookVideoHero({ content }: LookbookVideoHeroProps) {
           </div>
         </div>
 
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.12)_0%,rgba(0,0,0,0.04)_26%,rgba(0,0,0,0.18)_58%,rgba(0,0,0,0.5)_100%)]" />
-        <div className="absolute inset-x-0 top-0 h-28 bg-[linear-gradient(180deg,rgba(0,0,0,0.2)_0%,rgba(0,0,0,0)_100%)]" />
         <div className="absolute inset-x-0 bottom-0 h-24 bg-[linear-gradient(180deg,rgba(0,0,0,0)_0%,rgba(0,0,0,0.22)_100%)]" />
-
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,rgba(0,0,0,0.04)_26%,rgba(0,0,0,0.18)_58%,rgba(0,0,0,0.5)_100%)]" />
       </div>
     </section>
   );

@@ -2,6 +2,7 @@
 const nextConfig = {
   output: "export",
   basePath: "/VaganzaWebPage",
+  assetPrefix: "/VaganzaWebPage/",
   images: {
     unoptimized: true,
     remotePatterns: [

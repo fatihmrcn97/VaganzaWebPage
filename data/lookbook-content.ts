@@ -48,6 +48,10 @@ export type LookbookContent = {
 const myikas = (path: string) =>
   `https://cdn.myikas.com/images/6cdc7899-896f-45be-bc1c-875e50ef7de6/${path}`;
 
+const isProd = process.env.NODE_ENV === "production";
+const base = isProd ? "/VaganzaWebPage" : "";
+const p = (path: string) => `${base}${path}`;
+
 export const lookbookContent: LookbookContent = {
   hero: {
     season: "25 AUTUMN",
@@ -62,19 +66,19 @@ export const lookbookContent: LookbookContent = {
     title: "25 AUTUMN COLLECTION",
     cards: [
       {
-        image: "/lookbook1.png",
+        image: p("/lookbook1.png"),
         alt: "Model wearing a dark brown leather jacket in an editorial portrait.",
         buttonLabel: "SHOW MORE",
         href: "#newsletter",
       },
       {
-        image: "/lookbook2.png",
+        image: p("/lookbook2.png"),
         alt: "Model leaning against a brick wall wearing an autumn knit and suede jacket.",
         buttonLabel: "SHOW MORE",
         href: "#newsletter",
       },
       {
-        image: "/lookbook3.png",
+        image: p("/lookbook3.png"),
         alt: "Model posing in a narrow alley in a brown leather jacket.",
         buttonLabel: "SHOW MORE",
         href: "#newsletter",
@@ -84,19 +88,19 @@ export const lookbookContent: LookbookContent = {
   summer: {
     cards: [
       {
-        image: "/lookbook4.png",
+        image: p("/lookbook4.png"),
         alt: "Model in a light knit top under an open sky.",
         title: "24 SUMMER COLLECTION",
         href: "#newsletter",
       },
       {
-        image: "/Lookbook5.png",
+        image: p("/Lookbook5.png"),
         alt: "Relaxed editorial look in sand-toned styling.",
         title: "25 SUMMER COLLECTION",
         href: "#newsletter",
       },
       {
-        image: "/1V6A2000 kopya.jpg",
+        image: p("/1V6A2000 kopya.jpg"),
         alt: "Model in a monochrome summer look standing against a textured wall.",
         title: "26 SUMMER COLLECTION",
         href: "#newsletter",
@@ -112,7 +116,7 @@ export const lookbookContent: LookbookContent = {
   seasons: {
     posters: [
       {
-        image: "/bottom1.jpg",
+        image: p("/bottom1.jpg"),
         alt: "Vaganza Season 01",
         title: "VAGANZA",
         caption: "ALPS",
@@ -121,7 +125,7 @@ export const lookbookContent: LookbookContent = {
         widthClassName: "w-[216px]",
       },
       {
-        image: "/bottom2.jpg",
+        image: p("/bottom2.jpg"),
         alt: "Vaganza Season 02",
         title: "VAGANZA",
         caption: "FRANCE",
@@ -130,7 +134,7 @@ export const lookbookContent: LookbookContent = {
         widthClassName: "w-[216px]",
       },
       {
-        image: "/bottom3.jpg",
+        image: p("/bottom3.jpg"),
         alt: "Vaganza Season 03",
         title: "VAGANZA",
         caption: "AW 2024",
@@ -139,7 +143,7 @@ export const lookbookContent: LookbookContent = {
         widthClassName: "w-[216px]",
       },
       {
-        image: "/bottom4.jpg",
+        image: p("/bottom4.jpg"),
         alt: "Vaganza Season 04",
         title: "VAGANZA",
         caption: "SAILING",

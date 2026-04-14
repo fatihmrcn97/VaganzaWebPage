@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "export",
+  basePath: "/VaganzaWebPage",
   images: {
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: "https",

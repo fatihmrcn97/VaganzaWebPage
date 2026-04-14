@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import type {
   HeroCampaignSlide,
   HeroEditorialSlide,
@@ -105,37 +106,39 @@ function EditorialHeroSlide({ slide }: { slide: HeroEditorialSlide }) {
                 <span>{slide.leftCard.kicker}</span>
                 <span>{slide.leftCard.meta}</span>
               </div>
-              <button
-                type="button"
-                className="mt-3 sm:mt-4 md:mt-5 border border-white/20 bg-white/10 px-3 py-1.5 text-[6.5px] sm:px-4 sm:py-2 sm:text-[7.5px] lg:px-5 lg:py-2.5 lg:text-[9.5px] uppercase tracking-[0.42em] text-white/90 backdrop-blur-md hover:bg-white/20 hover:border-white/40 hover:scale-[1.03] transition-all duration-300"
+              <Link
+                href="/lookbook"
+                className="mt-3 inline-block sm:mt-4 md:mt-5 border border-white/20 bg-white/10 px-3 py-1.5 text-[6.5px] sm:px-4 sm:py-2 sm:text-[7.5px] lg:px-5 lg:py-2.5 lg:text-[9.5px] uppercase tracking-[0.42em] text-white/90 backdrop-blur-md hover:bg-white/20 hover:border-white/40 hover:scale-[1.03] transition-all duration-300"
               >
                 {slide.leftCard.buttonLabel}
-              </button>
+              </Link>
             </div>
           </div>
         </article>
 
         {/* Center card */}
         <article className="relative z-10 mx-auto w-full max-w-[20rem] overflow-hidden border border-white/8 bg-black/20 shadow-editorial sm:max-w-none">
-          <div className="relative aspect-[0.78] min-h-[18rem] sm:min-h-[22rem] lg:min-h-[36rem]">
-            <Image
-              src={slide.centerCard.image}
-              alt={slide.centerCard.imageAlt}
-              fill
-              priority
-              sizes="(max-width: 640px) 80vw, 36vw"
-              className="object-cover object-center"
-            />
-            <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.06)_0%,rgba(0,0,0,0.16)_42%,rgba(0,0,0,0.5)_100%)]" />
-            <div className="absolute inset-x-4 bottom-10 text-center sm:inset-x-5 sm:bottom-12 md:bottom-16 lg:bottom-24">
-              <h2 className="font-serif text-[1.1rem] sm:text-[1.3rem] md:text-[1.6rem] lg:text-[2.6rem] uppercase tracking-[0.08em] text-white">
-                {slide.centerCard.title}
-              </h2>
-              <p className="mt-2 text-[7px] sm:mt-3 sm:text-[8.5px] lg:mt-4 lg:text-[11px] uppercase tracking-[0.4em] text-white/74">
-                {slide.centerCard.subtitle}
-              </p>
+          <Link href="/lookbook" className="group block">
+            <div className="relative aspect-[0.78] min-h-[18rem] sm:min-h-[22rem] lg:min-h-[36rem]">
+              <Image
+                src={slide.centerCard.image}
+                alt={slide.centerCard.imageAlt}
+                fill
+                priority
+                sizes="(max-width: 640px) 80vw, 36vw"
+                className="object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
+              />
+              <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.06)_0%,rgba(0,0,0,0.16)_42%,rgba(0,0,0,0.5)_100%)]" />
+              <div className="absolute inset-x-4 bottom-10 text-center sm:inset-x-5 sm:bottom-12 md:bottom-16 lg:bottom-24 transition-transform duration-500 group-hover:scale-[1.01]">
+                <h2 className="font-serif text-[1.1rem] sm:text-[1.3rem] md:text-[1.6rem] lg:text-[2.6rem] uppercase tracking-[0.08em] text-white">
+                  {slide.centerCard.title}
+                </h2>
+                <p className="mt-2 text-[7px] sm:mt-3 sm:text-[8.5px] lg:mt-4 lg:text-[11px] uppercase tracking-[0.4em] text-white/74">
+                  {slide.centerCard.subtitle}
+                </p>
+              </div>
             </div>
-          </div>
+          </Link>
         </article>
 
         {/* About Us aside — Tightly integrated in the grid to prevent overlap */}

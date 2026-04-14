@@ -62,19 +62,19 @@ export const lookbookContent: LookbookContent = {
     title: "25 AUTUMN COLLECTION",
     cards: [
       {
-        image: myikas("1758541913198-2/3840/eu-8000-beige.webp"),
+        image: "/lookbook1.png",
         alt: "Model wearing a dark brown leather jacket in an editorial portrait.",
         buttonLabel: "SHOW MORE",
         href: "#newsletter",
       },
       {
-        image: myikas("1758541913094-1/3840/eu-8000-beige.webp"),
+        image: "/lookbook2.png",
         alt: "Model leaning against a brick wall wearing an autumn knit and suede jacket.",
         buttonLabel: "SHOW MORE",
         href: "#newsletter",
       },
       {
-        image: myikas("1758541913326-3/3840/eu-8000-beige.webp"),
+        image: "/lookbook3.png",
         alt: "Model posing in a narrow alley in a brown leather jacket.",
         buttonLabel: "SHOW MORE",
         href: "#newsletter",
@@ -84,19 +84,19 @@ export const lookbookContent: LookbookContent = {
   summer: {
     cards: [
       {
-        image: myikas("1758704080974-1/3840/tv-4043-graymelange-2.webp"),
+        image: "/lookbook4.png",
         alt: "Model in a light knit top under an open sky.",
         title: "24 SUMMER COLLECTION",
         href: "#newsletter",
       },
       {
-        image: myikas("913338c3-2c04-470a-8dfd-aa44a6c73985/3840/pnt-6038-beige-3.webp"),
+        image: "/Lookbook5.png",
         alt: "Relaxed editorial look in sand-toned styling.",
         title: "25 SUMMER COLLECTION",
         href: "#newsletter",
       },
       {
-        image: myikas("178ea57c-2e8b-475d-b86c-b7e59706852b/3840/dz--9950.webp"),
+        image: "/1V6A2000 kopya.jpg",
         alt: "Model in a monochrome summer look standing against a textured wall.",
         title: "26 SUMMER COLLECTION",
         href: "#newsletter",
@@ -112,44 +112,40 @@ export const lookbookContent: LookbookContent = {
   seasons: {
     posters: [
       {
-        image:
-          "https://images.pexels.com/photos/31091604/pexels-photo-31091604.jpeg?auto=compress&cs=tinysrgb&w=900&h=1400&dpr=1",
-        alt: "Snow-covered mountain village beneath a bright alpine sky.",
+        image: "/bottom1.jpg",
+        alt: "Vaganza Season 01",
         title: "VAGANZA",
         caption: "ALPS",
         href: "#newsletter",
         objectPosition: "center center",
-        widthClassName: "w-[106px]",
+        widthClassName: "w-[216px]",
       },
       {
-        image:
-          "https://images.pexels.com/photos/33327054/pexels-photo-33327054.jpeg?auto=compress&cs=tinysrgb&w=900&h=1400&dpr=1",
-        alt: "White suburban house framed by autumn trees with a parked car in front.",
+        image: "/bottom2.jpg",
+        alt: "Vaganza Season 02",
         title: "VAGANZA",
         caption: "FRANCE",
         href: "#newsletter",
         objectPosition: "center center",
-        widthClassName: "w-[82px]",
+        widthClassName: "w-[216px]",
       },
       {
-        image:
-          "https://images.pexels.com/photos/33583388/pexels-photo-33583388.jpeg?auto=compress&cs=tinysrgb&w=900&h=1400&dpr=1",
-        alt: "Historic European street with cars passing a church tower.",
+        image: "/bottom3.jpg",
+        alt: "Vaganza Season 03",
         title: "VAGANZA",
         caption: "AW 2024",
         href: "#newsletter",
-        objectPosition: "58% center",
-        widthClassName: "w-[82px]",
+        objectPosition: "center center",
+        widthClassName: "w-[216px]",
       },
       {
-        image:
-          "https://images.pexels.com/photos/5416242/pexels-photo-5416242.jpeg?auto=compress&cs=tinysrgb&w=900&h=1400&dpr=1",
-        alt: "Close view of a sailboat mast and sail against a crisp blue sky.",
+        image: "/bottom4.jpg",
+        alt: "Vaganza Season 04",
         title: "VAGANZA",
         caption: "SAILING",
         href: "#newsletter",
-        objectPosition: "64% center",
-        widthClassName: "w-[82px]",
+        objectPosition: "center center",
+        widthClassName: "w-[216px]",
       },
     ],
   },

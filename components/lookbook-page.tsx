@@ -60,7 +60,7 @@ function PosterCard({
 }: PosterCardProps) {
   return (
     <Link href={href} className="group flex flex-col items-center flex-shrink-0">
-      <div className={`relative h-[100px] w-[52px] overflow-hidden sm:h-[130px] sm:w-[66px] md:h-[150px] md:w-[74px] lg:h-[168px] lg:${widthClassName}`}>
+      <div className={`relative h-[120px] w-[126px] sm:h-[156px] sm:w-[162px] md:h-[180px] md:w-[189px] lg:h-[202px] lg:${widthClassName}`}>
         <img
           src={image}
           alt={alt}
@@ -108,16 +108,18 @@ export function LookbookPage() {
               className="aspect-[4/5] min-h-[20rem] sm:min-h-[28rem] md:min-h-0 md:h-full"
             />
             <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.08)_12%,rgba(0,0,0,0.16)_46%,rgba(0,0,0,0.34)_100%)]" />
-            <div className="absolute inset-x-4 bottom-16 text-center text-[12px] uppercase tracking-[0.36em] text-white/88 sm:inset-x-6 sm:bottom-20 sm:text-[14px] sm:tracking-[0.46em] lg:bottom-28 lg:text-[16px]">
-              {lookbookContent.autumn.title}
-            </div>
-            <div className="absolute inset-x-0 bottom-4 flex justify-center sm:bottom-6 lg:bottom-10">
-              <Link
-                href={autumnCenter.href}
-                className="flex h-10 min-w-[8rem] items-center justify-center bg-[rgba(204,179,145,0.42)] border border-white/20 px-5 text-[9px] uppercase tracking-[0.36em] text-white/96 backdrop-blur-md transition-all duration-300 hover:bg-[rgba(204,179,145,0.7)] hover:border-white/50 hover:scale-[1.03] sm:h-12 sm:min-w-[10rem] sm:px-8 sm:text-[10px] sm:tracking-[0.46em] lg:h-14 lg:min-w-[12rem] lg:text-[11px]"
-              >
-                {autumnCenter.buttonLabel}
-              </Link>
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6">
+              <h2 className="text-[14px] uppercase tracking-[0.46em] text-white/90 sm:text-[18px] lg:text-[22px] animate-fade-up">
+                {lookbookContent.autumn.title}
+              </h2>
+              <div className="absolute bottom-[22%] left-1/2 -translate-x-1/2">
+                <Link
+                  href={autumnCenter.href}
+                  className="flex h-10 min-w-[8rem] items-center justify-center bg-[rgba(204,179,145,0.42)] border border-white/20 px-5 text-[9px] uppercase tracking-[0.36em] text-white/96 backdrop-blur-md transition-all duration-300 hover:bg-[rgba(204,179,145,0.7)] hover:border-white/50 hover:scale-[1.03] sm:h-12 sm:min-w-[10rem] sm:px-8 sm:text-[10px] sm:tracking-[0.46em] lg:h-14 lg:min-w-[12rem] lg:text-[11px]"
+                >
+                  {autumnCenter.buttonLabel}
+                </Link>
+              </div>
             </div>
           </div>
 
@@ -135,7 +137,7 @@ export function LookbookPage() {
 
         {/* Summer cards */}
         <section className="grid grid-cols-1 gap-0 sm:grid-cols-3">
-          <div className="aspect-[16/9] sm:aspect-[16/7] lg:aspect-[16/5]">
+          <div className="aspect-[16/27.7] sm:aspect-[16/21.3] lg:aspect-[16/15.3]">
             <SummerCard
               alt={summerLeft.alt}
               href={summerLeft.href}
@@ -143,7 +145,7 @@ export function LookbookPage() {
               title={summerLeft.title!}
             />
           </div>
-          <div className="aspect-[16/9] sm:aspect-[16/7] lg:aspect-[16/5]">
+          <div className="aspect-[16/27.7] sm:aspect-[16/21.3] lg:aspect-[16/15.3]">
             <SummerCard
               alt={summerCenter.alt}
               href={summerCenter.href}
@@ -151,7 +153,7 @@ export function LookbookPage() {
               title={summerCenter.title!}
             />
           </div>
-          <div className="aspect-[16/9] sm:aspect-[16/7] lg:aspect-[16/5]">
+          <div className="aspect-[16/27.7] sm:aspect-[16/21.3] lg:aspect-[16/15.3]">
             <SummerCard
               alt={summerRight.alt}
               href={summerRight.href}

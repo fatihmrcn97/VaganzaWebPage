@@ -47,7 +47,7 @@ const slideContentVariants = {
       ease: EASE_SMOOTH,
     },
   },
-};
+} as const;
 
 const bgVariants = {
   enter: {
@@ -58,7 +58,7 @@ const bgVariants = {
     opacity: 1,
     scale: 1.0,
     transition: {
-      opacity: { duration: 1.2, ease: "easeOut" },
+      opacity: { duration: 1.2, ease: "easeOut" as const },
       scale: { duration: 1.8, ease: EASE_LUXURY },
     },
   },
@@ -67,10 +67,10 @@ const bgVariants = {
     scale: 1.05,
     transition: {
       duration: 0.8,
-      ease: "easeInOut",
+      ease: "easeInOut" as const,
     },
   },
-};
+} as const;
 
 /* ─── Campaign slide (slide 1) ─── */
 function CampaignHeroSlide({ slide }: { slide: HeroCampaignSlide }) {

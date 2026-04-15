@@ -2,51 +2,53 @@ import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "../../../components/navbar";
 import { Footer } from "../../../components/footer";
+import { ProductGallery } from "../../../components/product-gallery";
 import { brandName, navigationLinks, footerColumns, socialLinks } from "../../../data/site-content";
 
-// Simulated product database fetch based on ID
 const getProductData = (id: string) => {
+  const productsDB = {
+    "1": {
+      id: "1", shortName: "Ellis", name: "Luxe Knitted T-Shirt in Black", price: "£60", color: "Black", colors: ["#FAF9F6", "#333333", "#5C4033", "#556B2F", "#000080"], description: "Expertly crafted from soft ribbed knit, offering a contemporary approach to classic comfort. Featuring a refined silhouette, effortless stretch, and a minimalist tailored fit.",
+      details: ["100% Premium Cotton Blend", "Soft stretch knit", "Tailored fit", "Machine washable"],
+      gallery: ["/Product1.webp", "/Product1-1.webp", "/Product2.webp", "/Product3.webp"]
+    },
+    // Mocking others to fall back to a default
+  };
+  const defaultProduct = {
+      id, shortName: "Ellis", name: "Luxe Knitted T-Shirt in Black", price: "£60", color: "Black", colors: ["#FAF9F6", "#333333", "#5C4033", "#556B2F", "#000080"], description: "Expertly crafted from soft ribbed knit, offering a contemporary approach to classic comfort. Featuring a refined silhouette, effortless stretch, and a minimalist tailored fit.",
+      details: ["100% Premium Cotton Blend", "Soft stretch knit", "Tailored fit", "Machine washable"],
+      gallery: ["/Product1.webp", "/Product1-1.webp", "/Product2.webp", "/Product3.webp"]
+  };
+  
+  const productData = productsDB[id as keyof typeof productsDB] || defaultProduct;
+
   return {
-    id,
-    name: "TEXTURED LEATHER JACKET",
-    price: "$1,200",
-    color: "BLACK",
-    description: "Expertly crafted from soft, full-grain calf leather, this textured jacket offers a contemporary approach to classic outerwear. Featuring a refined silhouette, concealed hardware, and a minimalist tailored fit, it ensures sharp presence and enduring quality.",
-    details: [
-      "100% Calf Leather",
-      "Concealed two-way zipper",
-      "Two side jet pockets",
-      "Fully lined",
-      "Made in Italy"
-    ],
-    gallery: [
-      "/Product1.webp",
-      "/Product1-1.webp",
-      "/Product2.webp",
-      "/Product3.webp",
-    ],
+    ...productData,
     recommended: [
       {
         id: "3",
-        name: "TAILORED STRAIGHT TROUSERS",
-        price: "$450",
-        color: "ANTHRACITE",
+        shortName: "Pierre",
+        name: "Relaxed Fit Pleated Tailored Trousers in Black",
+        price: "£120",
+        colors: ["#1A1A1A", "#808080", "#4B5320", "#000080"],
         image: "/Product3.webp",
         hoverImage: "/Product1-3.webp",
       },
       {
         id: "4",
-        name: "CASHMERE BLEND TURTLENECK",
-        price: "$380",
-        color: "BLACK",
+        shortName: "Ellia",
+        name: "Luxe Knitted T-Shirt in Brown",
+        price: "£60",
+        colors: ["#FAF9F6", "#333333", "#5C4033"],
         image: "/Product4.webp",
         hoverImage: "/Product1-1.webp",
       },
       {
         id: "5",
-        name: "PREMIUM KNIT SWEATER",
-        price: "$420",
-        color: "ECRU",
+        shortName: "Kael",
+        name: "Premium Knit Sweater in Ecru",
+        price: "£85",
+        colors: ["#FAF9F6", "#1A1A1A", "#D2B48C"],
         image: "/1V6A2226.webp",
         hoverImage: "/lookbook2.webp",
       }
@@ -92,21 +94,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] xl:grid-cols-[1fr_400px] gap-8 lg:gap-12 xl:gap-16 items-start">
           
           {/* Left Column: Image Gallery */}
-          <div className="space-y-1 lg:space-y-2">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-1 lg:gap-2">
-              {product.gallery.map((img, idx) => (
-                <div key={idx} className={`relative bg-neutral-100 aspect-[3/4] w-full overflow-hidden ${idx === 0 ? "md:col-span-2 aspect-[4/5] object-top" : ""}`}>
-                  <Image 
-                    src={img} 
-                    alt={`${product.name} gallery image ${idx + 1}`} 
-                    fill 
-                    className="object-cover object-center w-full h-full hover:scale-105 transition-transform duration-[2000ms] ease-out" 
-                    priority={idx === 0} 
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
+          <ProductGallery images={product.gallery} productName={product.name} />
 
           {/* Right Column: Sticky Product Info */}
           <div className="lg:sticky lg:top-24 pt-4 lg:pt-0">
@@ -188,16 +176,27 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
                     New
                   </div>
                 </div>
-                <div className="flex justify-between items-start gap-4 px-1">
-                  <div>
-                    <h3 className="text-[9px] sm:text-[10px] uppercase tracking-[0.1em] text-neutral-900 font-medium leading-tight mb-1">
-                      {rec.name}
-                    </h3>
-                    <p className="text-[9px] uppercase tracking-[0.15em] text-neutral-500">
-                      {rec.color}
-                    </p>
+                <div className="mt-2 sm:mt-3 px-1 flex flex-col">
+                  <div className="text-[10px] sm:text-[11px] italic text-[#A5A5A5] font-serif mb-1 sm:mb-1.5 opacity-80">New In</div>
+                  <div className="flex items-center justify-between mb-1">
+                    <div className="flex items-center gap-3 md:gap-4 lg:gap-5 flex-wrap">
+                      <span className="font-serif italic text-base sm:text-[1.15rem] leading-none text-[#1a1a1a]">{rec.shortName}</span>
+                      <div className="flex items-center gap-[2px]">
+                        {rec.colors.map((color, idx) => (
+                          <div key={idx} className="w-[10px] h-[10px] sm:w-3 sm:h-3 border border-neutral-300/80" style={{ backgroundColor: color }}></div>
+                        ))}
+                      </div>
+                    </div>
+                    <button className="text-neutral-500 hover:text-black transition-colors self-start sm:self-center shrink-0 ml-2">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                      </svg>
+                    </button>
                   </div>
-                  <p className="text-[10px] sm:text-[11px] tracking-wider text-neutral-600 font-light">
+                  <h3 className="text-[10px] sm:text-[11px] text-[#A5A5A5] font-light mt-1 mb-0.5 truncate tracking-wide">
+                    {rec.name}
+                  </h3>
+                  <p className="text-[10px] sm:text-[11px] text-[#A5A5A5] font-light tracking-wide">
                     {rec.price}
                   </p>
                 </div>

@@ -52,10 +52,10 @@ export function StoreSection({ content }: StoreSectionProps) {
             {content.panels.map((panel) => (
               <div key={panel.title} className="space-y-3 sm:space-y-4">
                 <StoreIcon icon={panel.icon} />
-                <p className="text-[9px] uppercase tracking-[0.35em] text-white/64 sm:text-[10px] sm:tracking-[0.45em]">
+                <p className="text-[6.5px] uppercase tracking-[0.55em] text-white/40 sm:text-[7px]">
                   {panel.title}
                 </p>
-                <p className="max-w-[15rem] text-[13px] leading-6 text-white/75 sm:text-sm sm:leading-7">
+                <p className="max-w-[13rem] text-[9px] font-light leading-relaxed tracking-wide text-white/60 sm:text-[9.5px]">
                   {panel.description}
                 </p>
               </div>

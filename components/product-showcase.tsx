@@ -33,7 +33,7 @@ export function ProductShowcase({ content }: ProductShowcaseProps) {
   );
 
   return (
-    <section id="shop" className="bg-black py-12 sm:py-16 md:py-20 lg:py-24">
+    <section id="shop" className="relative z-10 bg-black py-12 sm:py-16 md:py-20 lg:py-24">
       <div className="section-shell">
         <div className="relative">
           <p className="text-center font-serif text-[10px] uppercase tracking-[0.72em] text-white/78 sm:text-[11px]">

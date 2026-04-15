@@ -1,8 +1,10 @@
 /** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === "production";
+
 const nextConfig = {
   output: "export",
-  basePath: "/VaganzaWebPage",
-  assetPrefix: "/VaganzaWebPage/",
+  basePath: isProd ? "/VaganzaWebPage" : "",
+  assetPrefix: isProd ? "/VaganzaWebPage/" : "",
   images: {
     unoptimized: true,
     remotePatterns: [

@@ -18,8 +18,8 @@ import {
 export default function Home() {
   return (
     <main className="page-shell">
+      <Navbar brand={brandName} links={navigationLinks} />
       <div className="relative isolate">
-        <Navbar brand={brandName} links={navigationLinks} />
         <HeroPrimary content={heroPrimary} />
       </div>
       <ProductShowcase content={productShowcase} />

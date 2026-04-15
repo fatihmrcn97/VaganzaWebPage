@@ -112,11 +112,10 @@ const p = (path: string) => `${base}${path}`;
 export const brandName = "VAGANZA";
 
 export const navigationLinks: NavLink[] = [
-  { href: p("/lookbook"), label: "SPRING SUMMER 2026" },
+  { href: "#shop", label: "NEW IN" },
+  { href: "#shop", label: "READY TO WEAR" },
+  { href: "#shop", label: "SHOES" },
   { href: "#story", label: "ABOUT US" },
-  { href: "#story", label: "MAN" },
-  { href: "#shop", label: "SHOP" },
-  { href: "#contact", label: "CONTACT" },
 ];
 
 const ruinsBackdrop = unsplashDownload("3hKDPfDk194", 2200);

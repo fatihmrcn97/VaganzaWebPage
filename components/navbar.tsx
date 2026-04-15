@@ -35,8 +35,8 @@ export function Navbar({ brand, links }: NavbarProps) {
           heading: "Explore by Category",
           links: ["View All", "Jackets and Coats", "Overshirts and Chore Jackets", "Knitwear"],
           images: [
-            { src: p("/1V6A2000_kopya.jpg"), title: "Discover Collection", subtitle: "Highlights" },
-            { src: p("/1V6A2226.jpg"), title: "Ready to Wear", subtitle: "Essentials" }
+            { src: p("/1V6A2000_kopya.webp"), title: "Discover Collection", subtitle: "Highlights" },
+            { src: p("/1V6A2226.webp"), title: "Ready to Wear", subtitle: "Essentials" }
           ]
         };
       case "SHOES":
@@ -45,12 +45,12 @@ export function Navbar({ brand, links }: NavbarProps) {
           heading: "Explore by Category",
           links: ["View All", "Sneakers", "Sandals and Espadrilles"],
           images: [
-            { src: p("/shoes1.jpg"), title: "Sneakers", subtitle: "Casual" },
-            { src: p("/shoes2.jpg"), title: "Loafers", subtitle: "Classic" },
-            { src: p("/shoes3.jpg"), title: "Boots", subtitle: "Winter" },
-            { src: p("/shoes4.jpg"), title: "Sandals", subtitle: "Summer" },
-            { src: p("/shoes5.jpg"), title: "Oxfords", subtitle: "Formal" },
-            { src: p("/shoes6.jpg"), title: "Derbies", subtitle: "Smart" },
+            { src: p("/shoes1.webp"), title: "Sneakers", subtitle: "Casual" },
+            { src: p("/shoes2.webp"), title: "Loafers", subtitle: "Classic" },
+            { src: p("/shoes3.webp"), title: "Boots", subtitle: "Winter" },
+            { src: p("/shoes4.webp"), title: "Sandals", subtitle: "Summer" },
+            { src: p("/shoes5.webp"), title: "Oxfords", subtitle: "Formal" },
+            { src: p("/shoes6.webp"), title: "Derbies", subtitle: "Smart" },
           ]
         };
       case "NEW IN":
@@ -60,9 +60,9 @@ export function Navbar({ brand, links }: NavbarProps) {
           heading: "Latest",
           links: ["New In", "Luxury Leisurewear", "Mocassin"],
           images: [
-            { src: p("/1V6A2496_kopya.jpg"), title: "The Spring Edit", subtitle: "Editorial" },
-            { src: p("/1V6A2226.jpg"), title: "New Arrivals", subtitle: "Wardrobe" },
-            { src: p("/leather2.jpg"), title: "Craftsmanship", subtitle: "Accessories" }
+            { src: p("/1V6A2496_kopya.webp"), title: "The Spring Edit", subtitle: "Editorial" },
+            { src: p("/1V6A2226.webp"), title: "New Arrivals", subtitle: "Wardrobe" },
+            { src: p("/leather2.webp"), title: "Craftsmanship", subtitle: "Accessories" }
           ]
         };
     }
@@ -72,28 +72,21 @@ export function Navbar({ brand, links }: NavbarProps) {
 
   return (
     <header 
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-700 ease-in-out ${isSolid ? "bg-white shadow-sm" : "bg-transparent"}`}
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-1000 ease-in-out ${isSolid ? "bg-white shadow-sm" : "bg-gradient-to-b from-black/80 via-black/30 to-transparent"}`}
       style={{ zIndex: 9999 }}
       onMouseLeave={() => setActiveDropdown(null)}
     >
-      {/* Utility Top Bar - Hidden on scroll or hover */}
-      <div className={`w-full transition-all duration-700 ease-in-out overflow-hidden ${isSolid ? "h-0 bg-transparent opacity-0" : "h-7 sm:h-8 bg-neutral-900 opacity-100"}`}>
-        <div className="flex h-full items-center justify-center text-[7.5px] sm:text-[9px] uppercase tracking-[0.25em] text-white/90 font-light px-4">
-          Complimentary Shipping & Returns On All Orders
-        </div>
-      </div>
-
-      <div className={`section-shell relative transition-all duration-700 ${isSolid ? "py-3 lg:py-4" : "py-4 lg:py-6"}`}>
+      <div className={`section-shell relative transition-all duration-700 ${isSolid ? "py-2 lg:py-3" : "py-3 lg:py-5"}`}>
         <div className="flex items-center justify-between gap-4 sm:gap-6">
           <div className="flex items-center gap-8 md:gap-12 lg:gap-16">
             <Link
               href="#campaign"
-              className={`font-serif text-sm uppercase tracking-[0.3em] hover:text-[#C5A059] transition-colors sm:text-base sm:tracking-[0.38em] lg:text-xl relative z-10 ${isSolid ? "text-neutral-950" : "text-white"}`}
+              className={`font-serif text-sm uppercase tracking-[0.3em] hover:text-[#C5A059] transition-colors sm:text-base sm:tracking-[0.38em] lg:text-xl relative z-10 ${isSolid ? "text-neutral-950" : "text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]"}`}
             >
               {brand}
             </Link>
             
-            <nav className={`hidden items-center gap-6 text-[9px] uppercase tracking-[0.35em] md:flex md:text-[10px] md:tracking-[0.42em] lg:gap-10 lg:text-[10px] relative z-10 ${isSolid ? "text-neutral-600" : "text-white/80"}`} style={{ height: "30px" }}>
+            <nav className={`hidden items-center gap-6 text-[9px] uppercase tracking-[0.35em] md:flex md:text-[10px] md:tracking-[0.42em] lg:gap-10 lg:text-[10px] relative z-10 ${isSolid ? "text-neutral-600" : "text-white/90 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]"}`} style={{ height: "30px" }}>
               {mainLinks.map((link) => (
                 <div 
                   key={link.label}
@@ -113,13 +106,13 @@ export function Navbar({ brand, links }: NavbarProps) {
               <Link
                 key={link.label}
                 href={link.href}
-                className={`hidden md:flex items-center justify-center text-[9px] uppercase tracking-[0.35em] md:text-[10px] md:tracking-[0.42em] lg:text-[10px] transition-colors duration-300 ${isSolid ? "text-neutral-600 hover:text-black" : "text-white/80 hover:text-[#C5A059]"}`}
+                className={`hidden md:flex items-center justify-center text-[9px] uppercase tracking-[0.35em] md:text-[10px] md:tracking-[0.42em] lg:text-[10px] transition-colors duration-300 ${isSolid ? "text-neutral-600 hover:text-black" : "text-white/90 hover:text-[#C5A059] drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]"}`}
               >
                 {link.label}
               </Link>
             ))}
             
-            <button className={`md:hidden p-1 transition-colors ${isSolid ? "text-neutral-900" : "text-white"}`} aria-label="Menu">
+            <button className={`md:hidden p-1 transition-colors ${isSolid ? "text-neutral-900" : "text-white drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]"}`} aria-label="Menu">
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
                 <line x1="3" x2="21" y1="12" y2="12"/>
                 <line x1="3" x2="21" y1="6" y2="6"/>
@@ -131,7 +124,7 @@ export function Navbar({ brand, links }: NavbarProps) {
 
         {/* Mobile Navigation Links */}
         <div className={`mt-3 overflow-x-auto border-t pt-2.5 md:hidden hide-scrollbar sm:mt-4 sm:pt-3 transition-colors duration-500 relative z-10 ${isSolid ? "border-neutral-200/60" : "border-white/10"}`}>
-          <div className={`flex min-w-max gap-5 text-[9px] uppercase tracking-[0.3em] font-light sm:gap-6 sm:text-[9px] sm:tracking-[0.38em] ${isSolid ? "text-neutral-600" : "text-white/70"}`}>
+          <div className={`flex min-w-max gap-5 text-[9px] uppercase tracking-[0.3em] font-light sm:gap-6 sm:text-[9px] sm:tracking-[0.38em] ${isSolid ? "text-neutral-600" : "text-white/90 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]"}`}>
             {links.map((link) => (
               <Link key={link.label} href={link.href} className="hover:text-[#C5A059] transition-colors">
                 {link.label}

@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect, useCallback, useRef } from "react";
-import { motion, AnimatePresence, useInView } from "framer-motion";
+import { useState, useEffect, useCallback, useRef, useMemo } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import type {
   HeroCampaignSlide,
   HeroEditorialSlide,
@@ -18,19 +18,18 @@ type HeroPrimaryProps = {
 const EASE_LUXURY = [0.19, 1.0, 0.22, 1.0] as const; // Expo-style out
 const EASE_SMOOTH = [0.45, 0.0, 0.15, 1.0] as const; // Smooth in-out
 
-/* ─── Slide-level motion configs ─── */
+/* ─── GPU-friendly slide-level motion configs ─── */
+/* Only animate transform (translate/scale) and opacity — these are composited on the GPU */
 const slideContentVariants = {
   enter: {
     opacity: 0,
     y: 40,
     scale: 0.97,
-    filter: "blur(6px)",
   },
   center: {
     opacity: 1,
     y: 0,
     scale: 1,
-    filter: "blur(0px)",
     transition: {
       duration: 0.9,
       ease: EASE_LUXURY,
@@ -41,7 +40,6 @@ const slideContentVariants = {
     opacity: 0,
     y: -30,
     scale: 1.02,
-    filter: "blur(4px)",
     transition: {
       duration: 0.5,
       ease: EASE_SMOOTH,
@@ -52,21 +50,21 @@ const slideContentVariants = {
 const bgVariants = {
   enter: {
     opacity: 0,
-    scale: 1.12,
+    scale: 1.08,
   },
   center: {
     opacity: 1,
     scale: 1.0,
     transition: {
-      opacity: { duration: 1.2, ease: "easeOut" as const },
-      scale: { duration: 1.8, ease: EASE_LUXURY },
+      opacity: { duration: 1.0, ease: "easeOut" as const },
+      scale: { duration: 1.6, ease: EASE_LUXURY },
     },
   },
   exit: {
     opacity: 0,
-    scale: 1.05,
+    scale: 1.03,
     transition: {
-      duration: 0.8,
+      duration: 0.6,
       ease: "easeInOut" as const,
     },
   },
@@ -94,8 +92,8 @@ function CampaignHeroSlide({ slide }: { slide: HeroCampaignSlide }) {
           ].join(" ")}
         >
           <motion.p 
-            initial={{ opacity: 0, y: 10, filter: "blur(3px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8, ease: EASE_LUXURY }}
             className="luxury-kicker"
           >
@@ -103,8 +101,8 @@ function CampaignHeroSlide({ slide }: { slide: HeroCampaignSlide }) {
           </motion.p>
           {slide.title ? (
             <motion.h2 
-              initial={{ opacity: 0, y: 20, filter: "blur(4px)" }}
-              animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.9, ease: EASE_LUXURY }}
               className="mt-3 font-serif text-[1.5rem] uppercase tracking-[0.16em] text-white sm:mt-5 sm:text-[2rem] lg:text-[2.6rem]"
             >
@@ -112,8 +110,8 @@ function CampaignHeroSlide({ slide }: { slide: HeroCampaignSlide }) {
             </motion.h2>
           ) : null}
           <motion.div 
-            initial={{ opacity: 0, y: 25, filter: "blur(3px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.9, ease: EASE_LUXURY }}
             className="mt-4 space-y-3 text-[11px] leading-[1.5] text-white/78 sm:mt-6 sm:space-y-4 sm:text-[12px] sm:leading-6 lg:text-[13px] lg:leading-7"
           >
@@ -145,8 +143,8 @@ function CampaignHeroSlide({ slide }: { slide: HeroCampaignSlide }) {
 
         {slide.modelImage ? (
           <motion.div
-            initial={{ opacity: 0, scale: 0.92, filter: "blur(8px)" }}
-            animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+            initial={{ opacity: 0, scale: 0.92 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3, duration: 1.2, ease: EASE_LUXURY }}
             className={[
               "relative flex justify-center",
@@ -154,6 +152,7 @@ function CampaignHeroSlide({ slide }: { slide: HeroCampaignSlide }) {
                 ? "lg:justify-end"
                 : "lg:order-1 lg:justify-start",
             ].join(" ")}
+            style={{ willChange: "transform, opacity" }}
           >
             <div className="relative h-[40vh] w-[12rem] min-w-[9rem] sm:h-[50vh] sm:w-[16rem] md:h-[56vh] md:w-[18rem] lg:h-[72vh] lg:w-[22rem]">
               <Image
@@ -173,25 +172,21 @@ function CampaignHeroSlide({ slide }: { slide: HeroCampaignSlide }) {
   );
 }
 
-/* ─── Editorial slide (slide 2) — premium card animations ─── */
+/* ─── Editorial slide (slide 2) — GPU-optimized card animations ─── */
 
-/* Card entrance variants — staggered 3D perspective reveal */
+/* Card entrance variants — staggered reveal (GPU-friendly: only transform + opacity) */
 const cardLeftVariants = {
   hidden: {
     opacity: 0,
     y: 60,
     x: -40,
-    rotateY: 8,
     scale: 0.88,
-    filter: "blur(10px)",
   },
   visible: {
     opacity: 1,
     y: 0,
     x: 0,
-    rotateY: 0,
     scale: 1,
-    filter: "blur(0px)",
     transition: {
       duration: 1.1,
       delay: 0.15,
@@ -205,13 +200,11 @@ const cardCenterVariants = {
     opacity: 0,
     y: 80,
     scale: 0.85,
-    filter: "blur(12px)",
   },
   visible: {
     opacity: 1,
     y: 0,
     scale: 1,
-    filter: "blur(0px)",
     transition: {
       duration: 1.3,
       delay: 0.05,
@@ -220,7 +213,7 @@ const cardCenterVariants = {
   },
 };
 
-/* About Us — dramatic text reveal */
+/* About Us — cascading text reveal */
 const aboutContainerVariants = {
   hidden: {},
   visible: {
@@ -235,12 +228,10 @@ const aboutTitleVariants = {
   hidden: {
     opacity: 0,
     x: 40,
-    clipPath: "inset(0 100% 0 0)",
   },
   visible: {
     opacity: 1,
     x: 0,
-    clipPath: "inset(0 0% 0 0)",
     transition: {
       duration: 0.9,
       ease: EASE_LUXURY,
@@ -252,12 +243,10 @@ const aboutTextVariants = {
   hidden: {
     opacity: 0,
     y: 18,
-    filter: "blur(4px)",
   },
   visible: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
     transition: {
       duration: 0.7,
       ease: EASE_LUXURY,
@@ -269,12 +258,10 @@ const aboutSignatureVariants = {
   hidden: {
     opacity: 0,
     x: -30,
-    clipPath: "inset(0 0 0 100%)",
   },
   visible: {
     opacity: 1,
     x: 0,
-    clipPath: "inset(0 0 0 0%)",
     transition: {
       duration: 1.0,
       ease: EASE_LUXURY,
@@ -299,7 +286,7 @@ const aboutTagVariants = {
   },
 };
 
-/* Golden accent line that sweeps under the About title */
+/* Golden accent line */
 const goldenLineVariants = {
   hidden: {
     scaleX: 0,
@@ -318,24 +305,20 @@ const goldenLineVariants = {
 };
 
 function EditorialHeroSlide({ slide }: { slide: HeroEditorialSlide }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-
   return (
     <div
       id={slide.id}
-      ref={containerRef}
       className="relative section-shell flex min-h-[96svh] items-center py-24 sm:py-28 lg:min-h-screen lg:py-0"
-      style={{ perspective: "1200px" }}
     >
       <div className="relative mx-auto grid w-full max-w-[84rem] grid-cols-1 items-center gap-8 sm:grid-cols-3 sm:gap-6 lg:grid-cols-[1fr_1.15fr_0.85fr] lg:gap-10">
 
-        {/* Left card — sweeps in from the left with subtle 3D rotation */}
+        {/* Left card */}
         <motion.article 
           variants={cardLeftVariants}
           initial="hidden"
           animate="visible"
           className="group relative z-20 mx-auto w-full max-w-[20rem] overflow-hidden border border-white/10 bg-black/20 shadow-editorial sm:max-w-none"
-          style={{ transformStyle: "preserve-3d" }}
+          style={{ willChange: "transform, opacity" }}
         >
           <div className="relative aspect-[0.72] min-h-[16rem] sm:min-h-[20rem] lg:min-h-[24rem]">
             {/* Inner image with its own reveal animation */}
@@ -344,6 +327,7 @@ function EditorialHeroSlide({ slide }: { slide: HeroEditorialSlide }) {
               animate={{ scale: 1 }}
               transition={{ duration: 1.6, delay: 0.2, ease: EASE_LUXURY }}
               className="absolute inset-0"
+              style={{ willChange: "transform" }}
             >
               <Image
                 src={slide.leftCard.image}
@@ -375,12 +359,13 @@ function EditorialHeroSlide({ slide }: { slide: HeroEditorialSlide }) {
           </div>
         </motion.article>
 
-        {/* Center card — rises from below with cinematic scale */}
+        {/* Center card */}
         <motion.article 
           variants={cardCenterVariants}
           initial="hidden"
           animate="visible"
           className="relative z-10 mx-auto w-full max-w-[20rem] overflow-hidden border border-white/8 bg-black/20 shadow-editorial sm:max-w-none"
+          style={{ willChange: "transform, opacity" }}
         >
           <Link href="/lookbook" className="group block">
             <div className="relative aspect-[0.78] min-h-[18rem] sm:min-h-[22rem] lg:min-h-[36rem]">
@@ -390,6 +375,7 @@ function EditorialHeroSlide({ slide }: { slide: HeroEditorialSlide }) {
                 animate={{ scale: 1 }}
                 transition={{ duration: 1.8, delay: 0.1, ease: EASE_LUXURY }}
                 className="absolute inset-0"
+                style={{ willChange: "transform" }}
               >
                 <Image
                   src={slide.centerCard.image}
@@ -402,8 +388,8 @@ function EditorialHeroSlide({ slide }: { slide: HeroEditorialSlide }) {
               </motion.div>
               <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(0,0,0,0.06)_0%,rgba(0,0,0,0.16)_42%,rgba(0,0,0,0.5)_100%)]" />
               <motion.div 
-                initial={{ opacity: 0, y: 30, filter: "blur(4px)" }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.7, duration: 1.0, ease: EASE_LUXURY }}
                 className="absolute inset-x-4 bottom-10 text-center sm:inset-x-5 sm:bottom-12 md:bottom-16 lg:bottom-24 transition-transform duration-500 group-hover:scale-[1.01]"
               >
@@ -423,7 +409,7 @@ function EditorialHeroSlide({ slide }: { slide: HeroEditorialSlide }) {
           </Link>
         </motion.article>
 
-        {/* About Us aside — dramatic cascading text reveal */}
+        {/* About Us aside — cascading text reveal */}
         <motion.aside 
           variants={aboutContainerVariants}
           initial="hidden"
@@ -443,10 +429,11 @@ function EditorialHeroSlide({ slide }: { slide: HeroEditorialSlide }) {
               <motion.div 
                 variants={goldenLineVariants}
                 className="mt-1.5 h-[1px] w-12 bg-gradient-to-r from-[#C5A059] to-[#C5A059]/0"
+                style={{ willChange: "transform, opacity" }}
               />
             </div>
             
-            {/* Body paragraphs with staggered blur-up reveal */}
+            {/* Body paragraphs with staggered reveal */}
             <div className="mt-2 sm:mt-3 space-y-1 sm:space-y-1.5 text-[8px] sm:text-[9px] lg:text-[10px] leading-[1.2] sm:leading-[1.3] text-white/70">
               {slide.body.map((paragraph, i) => (
                 <motion.p 
@@ -471,7 +458,7 @@ function EditorialHeroSlide({ slide }: { slide: HeroEditorialSlide }) {
               ))}
             </div>
             
-            {/* Signature with clip-path reveal from left */}
+            {/* Signature reveal */}
             <motion.p 
               variants={aboutSignatureVariants}
               className="mt-2 font-serif text-[9px] sm:text-[11px] italic tracking-[0.16em] text-white/80"
@@ -513,10 +500,30 @@ export function HeroPrimary({ content }: HeroPrimaryProps) {
     
     return () => clearInterval(timer);
   }, [content.slides.length, isSlowMode]);
+  /* Collect ALL image URLs across all slides so we can preload them */
+  const allImageUrls = useMemo(() => {
+    const urls = new Set<string>();
+    content.slides.forEach((slide) => {
+      urls.add(slide.backgroundImage);
+      if (slide.variant === "campaign") {
+        if (slide.modelImage) urls.add(slide.modelImage);
+      } else {
+        urls.add(slide.leftCard.image);
+        urls.add(slide.centerCard.image);
+      }
+    });
+    return Array.from(urls);
+  }, [content.slides]);
 
   return (
     <section className="relative min-h-[96svh] w-full overflow-hidden bg-black lg:min-h-screen">
-      {/* BACKGROUNDS: Cinematic cross-fade with parallax zoom */}
+      {/* PRELOAD: hidden images ensure all slide assets are cached before transitions */}
+      <div aria-hidden className="absolute w-0 h-0 overflow-hidden opacity-0 pointer-events-none">
+        {allImageUrls.map((url) => (
+          <Image key={url} src={url} alt="" width={1} height={1} priority />
+        ))}
+      </div>
+      {/* BACKGROUNDS: GPU-composited cross-fade */}
       <AnimatePresence initial={false}>
         <motion.div
            key={`bg-${activeSlide.id}`}
@@ -525,6 +532,7 @@ export function HeroPrimary({ content }: HeroPrimaryProps) {
            animate="center"
            exit="exit"
            className="absolute inset-0 z-0"
+           style={{ willChange: "transform, opacity" }}
         >
           {/* Blurred background for mobile letterboxing */}
           <Image
@@ -541,15 +549,18 @@ export function HeroPrimary({ content }: HeroPrimaryProps) {
             fill
             priority
             sizes="100vw"
-            className="object-cover object-center motion-safe:animate-slow-zoom"
+            className="object-cover object-center hero-slow-zoom"
           />
         </motion.div>
       </AnimatePresence>
 
       {/* Cinematic overlay grain + vignette */}
-      <div className="pointer-events-none absolute inset-0 z-[5] bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.3)_100%)]" />
+      <div className="pointer-events-none absolute inset-0 z-[5] bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.1)_100%)]" />
+      
+      {/* Top Navigation Vignette — ensures navbar legibility */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-[5] h-32 bg-gradient-to-b from-black/80 via-black/20 to-transparent" />
 
-      {/* CONTENT: Premium slide transition with blur + scale */}
+      {/* CONTENT: GPU-friendly slide transition */}
       <div className="relative z-10 w-full h-full">
         <AnimatePresence mode="wait">
           <motion.div
@@ -558,6 +569,7 @@ export function HeroPrimary({ content }: HeroPrimaryProps) {
             initial="enter"
             animate="center"
             exit="exit"
+            style={{ willChange: "transform, opacity" }}
           >
             {activeSlide.variant === "campaign" ? (
               <CampaignHeroSlide slide={activeSlide} />
@@ -594,6 +606,7 @@ export function HeroPrimary({ content }: HeroPrimaryProps) {
                   animate={{ scaleX: 1 }}
                   transition={{ duration: isSlowMode ? 8 : 4.5, ease: "linear" }}
                   className="absolute inset-0 rounded-full bg-[#C5A059]/70"
+                  style={{ willChange: "transform" }}
                 />
               )}
             </button>

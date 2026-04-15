@@ -64,19 +64,19 @@ export const lookbookContent: LookbookContent = {
     title: "25 AUTUMN COLLECTION",
     cards: [
       {
-        image: p("/lookbook1.png"),
+        image: p("/lookbook1.webp"),
         alt: "Model wearing a dark brown leather jacket in an editorial portrait.",
         buttonLabel: "SHOW MORE",
         href: "#newsletter",
       },
       {
-        image: p("/lookbook2.png"),
+        image: p("/lookbook2.webp"),
         alt: "Model leaning against a brick wall wearing an autumn knit and suede jacket.",
         buttonLabel: "SHOW MORE",
         href: "#newsletter",
       },
       {
-        image: p("/lookbook3.png"),
+        image: p("/lookbook3.webp"),
         alt: "Model posing in a narrow alley in a brown leather jacket.",
         buttonLabel: "SHOW MORE",
         href: "#newsletter",
@@ -86,19 +86,19 @@ export const lookbookContent: LookbookContent = {
   summer: {
     cards: [
       {
-        image: p("/lookbook4.png"),
+        image: p("/lookbook4.webp"),
         alt: "Model in a light knit top under an open sky.",
         title: "24 SUMMER COLLECTION",
         href: "#newsletter",
       },
       {
-        image: p("/Lookbook5.png"),
+        image: p("/Lookbook5.webp"),
         alt: "Relaxed editorial look in sand-toned styling.",
         title: "25 SUMMER COLLECTION",
         href: "#newsletter",
       },
       {
-        image: p("/1V6A2000_kopya.jpg"),
+        image: p("/1V6A2000_kopya.webp"),
         alt: "Model in a monochrome summer look standing against a textured wall.",
         title: "26 SUMMER COLLECTION",
         href: "#newsletter",
@@ -114,7 +114,7 @@ export const lookbookContent: LookbookContent = {
   seasons: {
     posters: [
       {
-        image: p("/bottom1.jpg"),
+        image: p("/bottom1.webp"),
         alt: "Vaganza Season 01",
         title: "VAGANZA",
         caption: "ALPS",

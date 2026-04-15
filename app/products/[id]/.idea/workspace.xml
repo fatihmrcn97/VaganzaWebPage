@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="adc066bf-bb80-460b-b863-42822b2c0a80" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../../../components/product-detail-zoom.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../components/product-gallery.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../components/product-image-zoom.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../public/1V6A2000 kopya.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../public/1V6A2000_kopya.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../public/1V6A2226.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../public/1V6A2496_kopya.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../public/Lookbook5.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../public/Product2.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../public/Product3.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../public/Product4.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../public/VaganzaPhotos/noManSlider2Bg.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../public/bottom1.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../public/leather2.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../public/lookbook1.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../public/lookbook2.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../public/lookbook3.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../public/lookbook4.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../public/shoes1.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../public/shoes2.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../public/shoes3.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../public/shoes4.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../public/shoes5.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../public/shoes6.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../scripts/optimize-images.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../components/hero-primary.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../components/hero-primary.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../components/navbar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/../../../components/navbar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../data/lookbook-content.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../data/lookbook-content.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../data/site-content.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../../../data/site-content.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../package-lock.json" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 1
+}]]></component>
+  <component name="ProjectId" id="3CPlcsKXGv7xHSkRRr4p5xuSs4r" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "Merging main",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\JetBrains Rider 2024.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="adc066bf-bb80-460b-b863-42822b2c0a80" name="Changes" comment="" />
+      <created>1776295169079</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1776295169079</updated>
+      <workItem from="1776295170804" duration="9000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>

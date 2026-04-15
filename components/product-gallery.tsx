@@ -39,14 +39,14 @@ export const ProductGallery = ({ images, productName }: ProductGalleryProps) => 
     <>
       <div className="w-full flex flex-col-reverse md:flex-row gap-2 md:gap-4 lg:h-[calc(100vh-120px)] lg:sticky lg:top-24">
         {/* Thumbnails Column (Left Side) */}
-        <div className="flex md:flex-col gap-2 md:gap-3 md:w-[60px] lg:w-[80px] shrink-0 overflow-x-auto md:overflow-y-auto no-scrollbar scroll-smooth pb-1 md:pb-0">
+        <div className="flex md:flex-col gap-2 md:gap-3 md:w-[64px] lg:w-[84px] shrink-0 overflow-x-auto md:overflow-y-auto no-scrollbar scroll-smooth pb-1 md:pb-0">
           {images.map((img, idx) => (
             <div 
               key={idx} 
-              className={`relative bg-[#f5f5f5] w-[50px] h-[66px] md:w-full md:h-[80px] lg:h-[106px] shrink-0 cursor-pointer overflow-hidden transition-all duration-300 ${
+              className={`relative bg-[#F9F9F9] w-[54px] h-[72px] md:w-full md:h-[84px] lg:h-[110px] shrink-0 cursor-pointer overflow-hidden transition-all duration-300 ${
                 activeIdx === idx 
-                  ? "ring-[1.5px] ring-black ring-offset-[2px]" 
-                  : "opacity-60 hover:opacity-100"
+                  ? "border-[1.5px] border-black" 
+                  : "opacity-50 hover:opacity-100"
               }`}
               onClick={() => setActiveIdx(idx)}
               onMouseEnter={() => !isModalOpen && setActiveIdx(idx)}
@@ -64,7 +64,7 @@ export const ProductGallery = ({ images, productName }: ProductGalleryProps) => 
 
         {/* Huge Main Image View */}
         <div 
-          className="relative w-full aspect-[3/4] md:aspect-auto md:h-full bg-[#f5f5f5] cursor-zoom-in group overflow-hidden"
+          className="relative w-full aspect-[3/4] md:aspect-auto md:h-full bg-[#F9F9F9] cursor-zoom-in group overflow-hidden"
           onClick={() => openFullscreen(activeIdx)}
         >
           <motion.div layoutId="product-image-active" className="relative w-full h-full">
@@ -140,12 +140,11 @@ export const ProductGallery = ({ images, productName }: ProductGalleryProps) => 
             )}
 
             {/* Central Single Image */}
-            <div className="w-full h-full flex items-center justify-center p-4 md:p-12">
+            <div className="w-full h-full flex items-center justify-center p-4 md:p-12" onClick={closeFullscreen}>
                <motion.div 
                  layoutId="product-image-active"
                  transition={{ type: "spring", stiffness: 200, damping: 25 }}
-                 className="relative w-full h-full max-w-[1200px] bg-transparent cursor-zoom-out shadow-2xl"
-                 onClick={closeFullscreen}
+                 className="relative w-full h-full max-w-[1200px] bg-transparent cursor-zoom-out"
                >
                   <Image 
                     src={images[activeIdx]} 

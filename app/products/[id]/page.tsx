@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Navbar } from "../../../components/navbar";
 import { Footer } from "../../../components/footer";
 import { brandName, navigationLinks, footerColumns, socialLinks, p } from "../../../data/site-content";
+import { ProductGallery } from "../../../components/product-gallery";
 
 // Simulated product database fetch based on ID
 const getProductData = (id: string) => {
@@ -92,20 +93,8 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] xl:grid-cols-[1fr_400px] gap-8 lg:gap-12 xl:gap-16 items-start">
           
           {/* Left Column: Image Gallery */}
-          <div className="space-y-1 lg:space-y-2">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-1 lg:gap-2">
-              {product.gallery.map((img, idx) => (
-                <div key={idx} className={`relative bg-neutral-100 aspect-[3/4] w-full overflow-hidden ${idx === 0 ? "md:col-span-2 aspect-[4/5] object-top" : ""}`}>
-                  <Image 
-                    src={img} 
-                    alt={`${product.name} gallery image ${idx + 1}`} 
-                    fill 
-                    className="object-cover object-center w-full h-full hover:scale-105 transition-transform duration-[2000ms] ease-out" 
-                    priority={idx === 0} 
-                  />
-                </div>
-              ))}
-            </div>
+          <div className="w-full">
+            <ProductGallery images={product.gallery} productName={product.name} />
           </div>
 
           {/* Right Column: Sticky Product Info */}

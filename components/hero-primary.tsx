@@ -555,7 +555,10 @@ export function HeroPrimary({ content }: HeroPrimaryProps) {
       </AnimatePresence>
 
       {/* Cinematic overlay grain + vignette */}
-      <div className="pointer-events-none absolute inset-0 z-[5] bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.3)_100%)]" />
+      <div className="pointer-events-none absolute inset-0 z-[5] bg-[radial-gradient(ellipse_at_center,transparent_0%,rgba(0,0,0,0.1)_100%)]" />
+      
+      {/* Top Navigation Vignette — ensures navbar legibility */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-[5] h-32 bg-gradient-to-b from-black/80 via-black/20 to-transparent" />
 
       {/* CONTENT: GPU-friendly slide transition */}
       <div className="relative z-10 w-full h-full">

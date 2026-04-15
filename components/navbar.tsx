@@ -29,6 +29,7 @@ export function Navbar({ brand, links }: NavbarProps) {
     switch (active) {
       case "READY TO WEAR":
         return {
+          layout: "default",
           heading: "Explore by Category",
           links: ["View All", "Jackets and Coats", "Overshirts and Chore Jackets", "Knitwear"],
           images: [
@@ -38,6 +39,7 @@ export function Navbar({ brand, links }: NavbarProps) {
         };
       case "SHOES":
         return {
+          layout: "default",
           heading: "Explore by Category",
           links: ["View All", "Sneakers", "Sandals and Espadrilles"],
           images: [
@@ -52,11 +54,13 @@ export function Navbar({ brand, links }: NavbarProps) {
       case "NEW IN":
       default:
         return {
+          layout: "asymmetric",
           heading: "Latest",
           links: ["New In", "Luxury Leisurewear", "Mocassin"],
           images: [
-            { src: "/1V6A2000_kopya.jpg", title: "Discover New In", subtitle: "Highlights" },
-            { src: "/leather2.jpg", title: "Explore Leather", subtitle: "Craftsmanship" }
+            { src: "/1V6A2496_kopya.jpg", title: "The Spring Edit", subtitle: "Editorial" },
+            { src: "/1V6A2226.jpg", title: "New Arrivals", subtitle: "Wardrobe" },
+            { src: "/leather2.jpg", title: "Craftsmanship", subtitle: "Accessories" }
           ]
         };
     }
@@ -137,7 +141,7 @@ export function Navbar({ brand, links }: NavbarProps) {
 
       {/* Mega Menu Dropdown Panel */}
       <div 
-        className={`absolute left-0 right-0 top-full bg-white transition-all duration-700 ease-in-out overflow-hidden shadow-xl ${['NEW IN', 'READY TO WEAR', 'SHOES'].includes(activeDropdown || '') ? "max-h-[600px] opacity-100 border-t border-neutral-100" : "max-h-0 opacity-0 border-transparent"}`}
+        className={`absolute left-0 right-0 top-full bg-white transition-all duration-700 ease-in-out overflow-hidden shadow-xl ${['NEW IN', 'READY TO WEAR', 'SHOES'].includes(activeDropdown || '') ? "max-h-[800px] opacity-100 border-t border-neutral-100" : "max-h-0 opacity-0 border-transparent"}`}
         onMouseEnter={() => setActiveDropdown((prev) => prev || "NEW IN")}
       >
         <div className="section-shell py-10 lg:py-14">
@@ -148,25 +152,51 @@ export function Navbar({ brand, links }: NavbarProps) {
               <h3 className="text-[10px] text-neutral-950 font-medium tracking-[0.3em] mb-2 uppercase">{dropdownData.heading}</h3>
               <div className="flex flex-col gap-4">
                 {dropdownData.links.map((linkLabel) => (
-                  <Link key={linkLabel} href="#shop" className="text-[12px] text-neutral-500 hover:text-[#C5A059] transition-colors uppercase tracking-[0.15em]">{linkLabel}</Link>
+                  <Link key={linkLabel} href="/products" className="text-[12px] text-neutral-500 hover:text-[#C5A059] transition-colors uppercase tracking-[0.15em]">{linkLabel}</Link>
                 ))}
               </div>
             </div>
 
             {/* Featured Images */}
             <div className="hidden md:block col-span-3">
-              <div className={`grid gap-4 lg:gap-6 min-h-[240px] ${dropdownData.images.length > 2 ? "grid-cols-3 grid-rows-2 h-[340px]" : "grid-cols-2 h-[240px]"}`}>
-                {dropdownData.images.map((img, idx) => (
-                  <Link key={idx} href="#lookbook" className="group relative block w-full h-full overflow-hidden bg-neutral-100">
-                    <img src={img.src} alt={img.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.03]" />
+              {dropdownData.layout === "asymmetric" && dropdownData.images.length >= 3 ? (
+                <div className="grid grid-cols-3 gap-4 lg:gap-6 h-[340px] lg:h-[400px]">
+                  <Link href="#lookbook" className="col-span-2 group relative block w-full h-full overflow-hidden bg-neutral-100">
+                    <img src={dropdownData.images[0].src} alt={dropdownData.images[0].title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.03]" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
-                    <div className="absolute bottom-4 left-4 sm:bottom-5 sm:left-5 text-white">
-                      <div className="text-[8px] uppercase tracking-[0.2em] mb-1">{img.subtitle}</div>
-                      <div className="text-[12px] sm:text-[14px] uppercase tracking-[0.15em] font-serif">{img.title}</div>
+                    <div className="absolute bottom-5 left-5 text-white">
+                      <div className="text-[9px] uppercase tracking-[0.2em] mb-1">{dropdownData.images[0].subtitle}</div>
+                      <div className="text-[16px] uppercase tracking-[0.15em] font-serif">{dropdownData.images[0].title}</div>
                     </div>
                   </Link>
-                ))}
-              </div>
+
+                  <div className="grid grid-rows-2 gap-4 lg:gap-6 h-full">
+                    {dropdownData.images.slice(1, 3).map((img, idx) => (
+                      <Link key={idx} href="#lookbook" className="group relative block w-full h-full overflow-hidden bg-neutral-100">
+                        <img src={img.src} alt={img.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.03]" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
+                        <div className="absolute bottom-4 left-4 text-white">
+                          <div className="text-[8px] uppercase tracking-[0.2em] mb-1">{img.subtitle}</div>
+                          <div className="text-[12px] uppercase tracking-[0.15em] font-serif">{img.title}</div>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <div className={`grid gap-4 lg:gap-6 min-h-[240px] ${dropdownData.images.length > 2 ? "grid-cols-3 grid-rows-2 h-[380px]" : "grid-cols-2 h-[260px]"}`}>
+                  {dropdownData.images.map((img, idx) => (
+                    <Link key={idx} href="#lookbook" className="group relative block w-full h-full overflow-hidden bg-neutral-100">
+                      <img src={img.src} alt={img.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.03]" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
+                      <div className="absolute bottom-4 left-4 sm:bottom-5 sm:left-5 text-white">
+                        <div className="text-[8px] uppercase tracking-[0.2em] mb-1">{img.subtitle}</div>
+                        <div className="text-[12px] sm:text-[14px] uppercase tracking-[0.15em] font-serif">{img.title}</div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              )}
             </div>
 
           </div>

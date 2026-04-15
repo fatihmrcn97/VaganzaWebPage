@@ -58,9 +58,9 @@ export const lookbookContent: LookbookContent = {
     brand: "VAGANZA",
     label: "LOOKBOOK",
     subtitle: "The sound of the wind caressing the branches of the trees.",
-    videoId: "SDfR2lxyaiU",
-    poster: "https://i.ytimg.com/vi/SDfR2lxyaiU/maxresdefault.jpg",
-    fallbackPoster: "https://i.ytimg.com/vi/SDfR2lxyaiU/hqdefault.jpg",
+    videoId: "Z0dR9PUM_qc",
+    poster: "https://i.ytimg.com/vi/Z0dR9PUM_qc/maxresdefault.jpg",
+    fallbackPoster: "https://i.ytimg.com/vi/Z0dR9PUM_qc/hqdefault.jpg",
   },
   autumn: {
     title: "25 AUTUMN COLLECTION",

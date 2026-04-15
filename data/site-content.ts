@@ -112,9 +112,9 @@ const p = (path: string) => `${base}${path}`;
 export const brandName = "VAGANZA";
 
 export const navigationLinks: NavLink[] = [
-  { href: "#shop", label: "NEW IN" },
-  { href: "#shop", label: "READY TO WEAR" },
-  { href: "#shop", label: "SHOES" },
+  { href: "/products", label: "NEW IN" },
+  { href: "/products", label: "READY TO WEAR" },
+  { href: "/products", label: "SHOES" },
   { href: "#story", label: "ABOUT US" },
 ];
 
@@ -160,14 +160,14 @@ export const heroPrimary: HeroPrimaryContent = {
         subtitle: "SHOW THE COLLECTION",
       },
       body: [
-        "Our pursuit of direction begins with restraint.",
-        "Each season is shaped by place, proportion, and the quiet confidence of materials that grow richer with time.",
-        "Summer 2026 reflects a man in motion, dressed for light, shadow, and continuity across changing chapters.",
-        "The VAGANZA line is rooted in discretion and clarity, forming the foundation of a wardrobe built to endure.",
-        "Proceed as personal. The path is chosen. Own your story.",
+        "Vaganza was founded on a single conviction: elegance endures. Where form is deliberate, fabric is chosen with intention, and every silhouette carries its own quiet authority.",
+        "Our collections are shaped by precision and restraint. Nothing excessive, nothing accidental. Each piece is composed to stand on its own — defined by balance, proportion, and permanence.",
+        "Vaganza designs for those who understand that style is not declared; it is embodied. Clean lines. Structured ease. A presence that does not seek attention, yet never escapes it.",
+        "Our Vision: To move beyond the rhythm of passing seasons and create garments that remain relevant long after the moment has passed.",
+        "Vaganza exists to shape wardrobes that are not temporary, but lasting — built on integrity, clarity, and enduring form.",
       ],
-      signature: "Proceed with presence.",
-      captionTags: ["#VaganzaMan", "#EditorialStudy"],
+      signature: "Built on integrity.",
+      captionTags: ["#VaganzaManifesto", "#EnduringStyle"],
     },
   ],
 };

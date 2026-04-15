@@ -105,7 +105,14 @@ export type SocialLink = {
 const unsplashDownload = (photoId: string, width: number) =>
   `https://unsplash.com/photos/${photoId}/download?force=true&w=${width}&q=80`;
 
-export const p = (path: string) => path;
+const isProd = typeof window !== 'undefined' ? window.location.hostname !== 'localhost' : process.env.NODE_ENV === 'production';
+const basePath = isProd ? '/VaganzaWebPage' : '';
+
+export const p = (path: string) => {
+  if (path.startsWith('http')) return path;
+  if (path.startsWith(basePath) && isProd) return path;
+  return `${basePath}${path}`;
+};
 
 export const brandName = "VAGANZA";
 
@@ -125,7 +132,7 @@ export const heroPrimary: HeroPrimaryContent = {
       variant: "campaign",
       alignment: "left-model",
       label: "Campaign 01",
-      backgroundImage: "/1V6A2226.jpg",
+      backgroundImage: p("/1V6A2226.jpg"),
       backgroundAlt: "Vaganza campaign background",
       modelImage: "",
       modelAlt: "",
@@ -142,17 +149,17 @@ export const heroPrimary: HeroPrimaryContent = {
       variant: "editorial",
       alignment: "right-copy",
       label: "Campaign 02",
-      backgroundImage: "/VaganzaPhotos/noManSlider2Bg.png",
+      backgroundImage: p("/VaganzaPhotos/noManSlider2Bg.png"),
       backgroundAlt: "Vaganza editorial background",
       leftCard: {
-        image: "/1V6A2496_kopya.jpg",
+        image: p("/1V6A2496_kopya.jpg"),
         imageAlt: "Vaganza editorial story photo 01",
         kicker: "VAGANZA",
         meta: "Editorial Chapter 03",
         buttonLabel: "LOOKBOOK",
       },
       centerCard: {
-        image: "/VaganzaPhotos/noManSlider2Bg.png",
+        image: p("/VaganzaPhotos/noManSlider2Bg.png"),
         imageAlt: "Vaganza editorial story photo 02",
         title: "SPRING | SUMMER 2026",
         subtitle: "SHOW THE COLLECTION",
@@ -175,12 +182,12 @@ export const productShowcase: ProductShowcaseContent = {
   note: "",
   detailFrames: [
     {
-      image: "/Leather SolUst.jpg",
+      image: p("/Leather SolUst.jpg"),
       imageAlt: "Vaganza Leather Detail Top",
       objectPosition: "center center",
     },
     {
-      image: "/Leater Sol alt.jpg",
+      image: p("/Leater Sol alt.jpg"),
       imageAlt: "Vaganza Leather Detail Bottom",
       objectPosition: "center center",
     },
@@ -191,7 +198,7 @@ export const productShowcase: ProductShowcaseContent = {
       sublabel: "Leather Collection",
       name: "LEATER 1",
       price: "7.900 TL",
-      image: "/LEATER1.jpg",
+      image: p("/LEATER1.jpg"),
       imageAlt: "Vaganza Leather 1",
       objectPosition: "center center",
     },
@@ -200,7 +207,7 @@ export const productShowcase: ProductShowcaseContent = {
       sublabel: "Premium Leather",
       name: "LEATHER 2",
       price: "24.500 TL",
-      image: "/leather2.jpg",
+      image: p("/leather2.jpg"),
       imageAlt: "Vaganza Leather 2",
       objectPosition: "center center",
     },
@@ -209,7 +216,7 @@ export const productShowcase: ProductShowcaseContent = {
       sublabel: "Leather Craft",
       name: "LEATHER 3",
       price: "7.500 TL",
-      image: "/leather3.jpg",
+      image: p("/leather3.jpg"),
       imageAlt: "Vaganza Leather 3",
       objectPosition: "center center",
     },
@@ -218,7 +225,7 @@ export const productShowcase: ProductShowcaseContent = {
       sublabel: "Fragrance",
       name: "Leather Parfume",
       price: "4.900 TL",
-      image: "/leather parfume.jpg",
+      image: p("/leather parfume.jpg"),
       imageAlt: "Vaganza Leather Parfume",
       objectPosition: "center center",
     },

@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { p } from "../data/site-content";
 import type { NavLink } from "../data/site-content";
 
 type NavbarProps = {
@@ -34,8 +35,8 @@ export function Navbar({ brand, links }: NavbarProps) {
           heading: "Explore by Category",
           links: ["View All", "Jackets and Coats", "Overshirts and Chore Jackets", "Knitwear"],
           images: [
-            { src: "/1V6A2000_kopya.jpg", title: "Discover Collection", subtitle: "Highlights" },
-            { src: "/1V6A2226.jpg", title: "Ready to Wear", subtitle: "Essentials" }
+            { src: p("/1V6A2000_kopya.jpg"), title: "Discover Collection", subtitle: "Highlights" },
+            { src: p("/1V6A2226.jpg"), title: "Ready to Wear", subtitle: "Essentials" }
           ]
         };
       case "SHOES":
@@ -44,12 +45,12 @@ export function Navbar({ brand, links }: NavbarProps) {
           heading: "Explore by Category",
           links: ["View All", "Sneakers", "Sandals and Espadrilles"],
           images: [
-            { src: "/shoes1.jpg", title: "Sneakers", subtitle: "Casual" },
-            { src: "/shoes2.jpg", title: "Loafers", subtitle: "Classic" },
-            { src: "/shoes3.jpg", title: "Boots", subtitle: "Winter" },
-            { src: "/shoes4.jpg", title: "Sandals", subtitle: "Summer" },
-            { src: "/shoes5.jpg", title: "Oxfords", subtitle: "Formal" },
-            { src: "/shoes6.jpg", title: "Derbies", subtitle: "Smart" },
+            { src: p("/shoes1.jpg"), title: "Sneakers", subtitle: "Casual" },
+            { src: p("/shoes2.jpg"), title: "Loafers", subtitle: "Classic" },
+            { src: p("/shoes3.jpg"), title: "Boots", subtitle: "Winter" },
+            { src: p("/shoes4.jpg"), title: "Sandals", subtitle: "Summer" },
+            { src: p("/shoes5.jpg"), title: "Oxfords", subtitle: "Formal" },
+            { src: p("/shoes6.jpg"), title: "Derbies", subtitle: "Smart" },
           ]
         };
       case "NEW IN":
@@ -59,9 +60,9 @@ export function Navbar({ brand, links }: NavbarProps) {
           heading: "Latest",
           links: ["New In", "Luxury Leisurewear", "Mocassin"],
           images: [
-            { src: "/1V6A2496_kopya.jpg", title: "The Spring Edit", subtitle: "Editorial" },
-            { src: "/1V6A2226.jpg", title: "New Arrivals", subtitle: "Wardrobe" },
-            { src: "/leather2.jpg", title: "Craftsmanship", subtitle: "Accessories" }
+            { src: p("/1V6A2496_kopya.jpg"), title: "The Spring Edit", subtitle: "Editorial" },
+            { src: p("/1V6A2226.jpg"), title: "New Arrivals", subtitle: "Wardrobe" },
+            { src: p("/leather2.jpg"), title: "Craftsmanship", subtitle: "Accessories" }
           ]
         };
     }

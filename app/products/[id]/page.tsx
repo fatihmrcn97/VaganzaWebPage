@@ -67,8 +67,9 @@ export function generateStaticParams() {
   ];
 }
 
-export default function ProductDetailPage({ params }: { params: { id: string } }) {
-  const product = getProductData(params.id);
+export default async function ProductDetailPage({ params }: { params: Promise<{ id: string }> }) {
+  const { id } = await params;
+  const product = getProductData(id);
 
   return (
     <main className="min-h-screen bg-white text-neutral-900 selection:bg-[#C5A059] selection:text-white">

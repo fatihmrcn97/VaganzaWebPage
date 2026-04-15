@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { lookbookContent } from "../data/lookbook-content";
 import { LookbookVideoHero } from "./lookbook-video-hero";
 
@@ -16,7 +17,7 @@ type PosterCardProps = (typeof lookbookContent.seasons.posters)[number];
 function EditorialImage({ alt, image, className = "" }: Pick<EditorialTileProps, "alt" | "image" | "className">) {
   return (
     <div className={`relative overflow-hidden ${className}`}>
-      <img src={image} alt={alt} className="h-full w-full object-cover object-center" loading="lazy" />
+      <Image src={image} alt={alt} fill className="h-full w-full object-cover object-center" loading="lazy" />
     </div>
   );
 }
@@ -35,9 +36,10 @@ function EditorialButton({ href, label }: { href: string; label: string }) {
 function SummerCard({ alt, href, image, title }: Required<Pick<EditorialTileProps, "alt" | "href" | "image" | "title">>) {
   return (
     <Link href={href} className="group relative block h-full overflow-hidden">
-      <img
+      <Image
         src={image}
         alt={alt}
+        fill
         className="h-full w-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.02]"
         loading="lazy"
       />
@@ -60,10 +62,11 @@ function PosterCard({
 }: PosterCardProps) {
   return (
     <Link href={href} className="group flex flex-col items-center flex-shrink-0">
-      <div className={`relative h-[120px] w-[126px] sm:h-[156px] sm:w-[162px] md:h-[180px] md:w-[189px] lg:h-[202px] lg:${widthClassName}`}>
-        <img
+      <div className={`relative h-[120px] w-[126px] sm:h-[156px] sm:w-[162px] md:h-[180px] md:w-[189px] lg:h-[202px] lg:${widthClassName} overflow-hidden`}>
+        <Image
           src={image}
           alt={alt}
+          fill
           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.015]"
           style={{ objectPosition: objectPosition ?? "center center" }}
           loading="lazy"

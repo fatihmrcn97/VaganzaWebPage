@@ -2,12 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import type {
   HeroCampaignSlide,
   HeroEditorialSlide,
   HeroPrimaryContent,
 } from "../data/site-content";
-import { useState } from "react";
 
 type HeroPrimaryProps = {
   content: HeroPrimaryContent;
@@ -29,33 +30,65 @@ function CampaignHeroSlide({ slide }: { slide: HeroCampaignSlide }) {
       >
         <div
           className={[
-            "max-w-[34rem] animate-fade-up font-light drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]",
+            "max-w-[34rem] font-light drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]",
             slide.alignment === "left-model" ? "" : "lg:order-2 lg:justify-self-end",
           ].join(" ")}
         >
-          <p className="luxury-kicker">{slide.label}</p>
+          <motion.p 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+            className="luxury-kicker"
+          >
+            {slide.label}
+          </motion.p>
           {slide.title ? (
-            <h2 className="mt-3 font-serif text-[1.5rem] uppercase tracking-[0.16em] text-white sm:mt-5 sm:text-[2rem] lg:text-[2.6rem]">
+            <motion.h2 
+              initial={{ opacity: 0, y: 15 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.8 }}
+              className="mt-3 font-serif text-[1.5rem] uppercase tracking-[0.16em] text-white sm:mt-5 sm:text-[2rem] lg:text-[2.6rem]"
+            >
               {slide.title}
-            </h2>
+            </motion.h2>
           ) : null}
-          <div className="mt-4 space-y-3 text-[11px] leading-[1.5] text-white/78 sm:mt-6 sm:space-y-4 sm:text-[12px] sm:leading-6 lg:text-[13px] lg:leading-7">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="mt-4 space-y-3 text-[11px] leading-[1.5] text-white/78 sm:mt-6 sm:space-y-4 sm:text-[12px] sm:leading-6 lg:text-[13px] lg:leading-7"
+          >
             {slide.copy.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
-          </div>
-          <p className="mt-4 font-serif text-base italic tracking-[0.18em] text-white/92 sm:mt-5 sm:text-lg">
+          </motion.div>
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6, duration: 1 }}
+            className="mt-4 font-serif text-base italic tracking-[0.18em] text-white/92 sm:mt-5 sm:text-lg"
+          >
             {slide.signature}
-          </p>
+          </motion.p>
           <div className="mt-5 flex flex-wrap gap-3 text-[9px] uppercase tracking-[0.4em] text-white/68 sm:mt-7 sm:gap-4 sm:text-[10px]">
-            {slide.captionTags.map((tag) => (
-              <span key={tag}>{tag}</span>
+            {slide.captionTags.map((tag, i) => (
+              <motion.span 
+                key={tag}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.7 + (i * 0.1), duration: 0.5 }}
+              >
+                {tag}
+              </motion.span>
             ))}
           </div>
         </div>
 
         {slide.modelImage ? (
-          <div
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.3, duration: 1, ease: "easeOut" }}
             className={[
               "relative flex justify-center",
               slide.alignment === "left-model"
@@ -74,7 +107,7 @@ function CampaignHeroSlide({ slide }: { slide: HeroCampaignSlide }) {
               />
               <div className="absolute inset-x-6 bottom-0 h-20 rounded-full bg-black/45 blur-3xl" />
             </div>
-          </div>
+          </motion.div>
         ) : null}
       </div>
     </div>
@@ -90,7 +123,12 @@ function EditorialHeroSlide({ slide }: { slide: HeroEditorialSlide }) {
       <div className="relative mx-auto grid w-full max-w-[84rem] grid-cols-1 items-center gap-8 sm:grid-cols-3 sm:gap-6 lg:grid-cols-[1fr_1.15fr_0.85fr] lg:gap-10">
 
         {/* Left card */}
-        <article className="group relative z-20 mx-auto w-full max-w-[20rem] overflow-hidden border border-white/10 bg-black/20 shadow-editorial sm:max-w-none">
+        <motion.article 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.8 }}
+          className="group relative z-20 mx-auto w-full max-w-[20rem] overflow-hidden border border-white/10 bg-black/20 shadow-editorial sm:max-w-none"
+        >
           <div className="relative aspect-[0.72] min-h-[16rem] sm:min-h-[20rem] lg:min-h-[24rem]">
             <Image
               src={slide.leftCard.image}
@@ -114,10 +152,15 @@ function EditorialHeroSlide({ slide }: { slide: HeroEditorialSlide }) {
               </Link>
             </div>
           </div>
-        </article>
+        </motion.article>
 
         {/* Center card */}
-        <article className="relative z-10 mx-auto w-full max-w-[20rem] overflow-hidden border border-white/8 bg-black/20 shadow-editorial sm:max-w-none">
+        <motion.article 
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.1, duration: 0.9 }}
+          className="relative z-10 mx-auto w-full max-w-[20rem] overflow-hidden border border-white/8 bg-black/20 shadow-editorial sm:max-w-none"
+        >
           <Link href="/lookbook" className="group block">
             <div className="relative aspect-[0.78] min-h-[18rem] sm:min-h-[22rem] lg:min-h-[36rem]">
               <Image
@@ -139,10 +182,15 @@ function EditorialHeroSlide({ slide }: { slide: HeroEditorialSlide }) {
               </div>
             </div>
           </Link>
-        </article>
+        </motion.article>
 
-        {/* About Us aside — Tightly integrated in the grid to prevent overlap */}
-        <aside className="relative z-20 mx-auto flex w-full max-w-[14rem] lg:max-w-none items-center lg:px-0 lg:py-0 transition-all duration-500">
+        {/* About Us aside */}
+        <motion.aside 
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.4, duration: 0.8 }}
+          className="relative z-20 mx-auto flex w-full max-w-[14rem] lg:max-w-none items-center lg:px-0 lg:py-0 transition-all duration-500"
+        >
           <div className="w-full max-w-[12rem] sm:max-w-[13rem] lg:max-w-[18rem] mx-auto font-light">
             <p className="font-serif text-[0.8rem] sm:text-[0.9rem] lg:text-[1rem] uppercase tracking-[0.2em] text-[#C5A059]">
               ABOUT US
@@ -161,7 +209,7 @@ function EditorialHeroSlide({ slide }: { slide: HeroEditorialSlide }) {
               {slide.signature}
             </p>
           </div>
-        </aside>
+        </motion.aside>
 
       </div>
     </div>
@@ -170,35 +218,85 @@ function EditorialHeroSlide({ slide }: { slide: HeroEditorialSlide }) {
 
 export function HeroPrimary({ content }: HeroPrimaryProps) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isSlowMode, setIsSlowMode] = useState(false);
+  
   const activeSlide = content.slides[activeIndex];
+
+  const paginate = (newIndex: number) => {
+    setActiveIndex(newIndex);
+    // If user interacts, switch to slow mode
+    if (!isSlowMode) setIsSlowMode(true);
+  };
+
+  // Auto-play slider with dynamic interval
+  useEffect(() => {
+    // Faster at start (4s), slower later (8s)
+    const intervalTime = isSlowMode ? 8000 : 4500;
+    
+    const timer = setInterval(() => {
+      setActiveIndex((prev) => {
+        const nextIndex = (prev + 1) % content.slides.length;
+        // After showing the first few slides quickly, lock into slow mode
+        if (nextIndex === content.slides.length - 1) {
+          setIsSlowMode(true);
+        }
+        return nextIndex;
+      });
+    }, intervalTime);
+    
+    return () => clearInterval(timer);
+  }, [content.slides.length, isSlowMode]);
 
   return (
     <section className="relative min-h-[96svh] w-full overflow-hidden bg-black lg:min-h-screen">
-      {/* Blurred background for letterboxing filler on mobile */}
-      <Image
-        key={`blur-${activeSlide.id}`}
-        src={activeSlide.backgroundImage}
-        alt=""
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-center opacity-50 blur-3xl lg:hidden"
-      />
-      <Image
-        key={activeSlide.id}
-        src={activeSlide.backgroundImage}
-        alt={activeSlide.backgroundAlt}
-        fill
-        priority
-        sizes="100vw"
-        className="relative z-0 object-cover object-center motion-safe:animate-slow-zoom"
-      />
+      {/* BACKGROUNDS: Cross-fade for seamless layering, independent of content wait */}
+      <AnimatePresence initial={false}>
+        <motion.div
+           key={`bg-${activeSlide.id}`}
+           initial={{ opacity: 0 }}
+           animate={{ opacity: 1 }}
+           exit={{ opacity: 0 }}
+           transition={{ duration: 1.5, ease: "easeInOut" }}
+           className="absolute inset-0 z-0"
+        >
+          {/* Blurred background for letterboxing filler on mobile */}
+          <Image
+            src={activeSlide.backgroundImage}
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center opacity-40 blur-3xl lg:hidden"
+          />
+          <Image
+            src={activeSlide.backgroundImage}
+            alt={activeSlide.backgroundAlt}
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center motion-safe:animate-slow-zoom"
+          />
+        </motion.div>
+      </AnimatePresence>
 
-      {activeSlide.variant === "campaign" ? (
-        <CampaignHeroSlide slide={activeSlide} />
-      ) : (
-        <EditorialHeroSlide slide={activeSlide} />
-      )}
+      {/* CONTENT: Simple, stable fade with wait mode to prevent layout jumps */}
+      <div className="relative z-10 w-full h-full">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={activeSlide.id}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
+          >
+            {activeSlide.variant === "campaign" ? (
+              <CampaignHeroSlide slide={activeSlide} />
+            ) : (
+              <EditorialHeroSlide slide={activeSlide} />
+            )}
+          </motion.div>
+        </AnimatePresence>
+      </div>
 
       <div className="absolute bottom-5 left-1/2 z-30 -translate-x-1/2">
         <div className="flex items-center gap-2.5">
@@ -207,7 +305,7 @@ export function HeroPrimary({ content }: HeroPrimaryProps) {
               key={slide.id}
               type="button"
               aria-label={`Show slide ${index + 1}`}
-              onClick={() => setActiveIndex(index)}
+              onClick={() => paginate(index)}
               className={[
                 "h-1.5 rounded-full transition-all duration-300",
                 activeIndex === index ? "w-4 bg-white" : "w-1.5 bg-white/45",

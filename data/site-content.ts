@@ -107,7 +107,7 @@ const unsplashDownload = (photoId: string, width: number) =>
 
 const isProd = process.env.NODE_ENV === "production";
 const base = isProd ? "/VaganzaWebPage" : "";
-const p = (path: string) => `${base}${path}`;
+export const p = (path: string) => `${base}${path}`;
 
 export const brandName = "VAGANZA";
 

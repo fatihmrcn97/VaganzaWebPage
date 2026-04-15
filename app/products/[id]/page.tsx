@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "../../../components/navbar";
 import { Footer } from "../../../components/footer";
-import { brandName, navigationLinks, footerColumns, socialLinks } from "../../../data/site-content";
+import { brandName, navigationLinks, footerColumns, socialLinks, p } from "../../../data/site-content";
 
 // Simulated product database fetch based on ID
 const getProductData = (id: string) => {
@@ -20,10 +20,10 @@ const getProductData = (id: string) => {
       "Made in Italy"
     ],
     gallery: [
-      "/Product1.jpg",
-      "/Product1-1.webp",
-      "/Product2.jpg",
-      "/Product3.jpg",
+      p("/Product1.jpg"),
+      p("/Product1-1.webp"),
+      p("/Product2.jpg"),
+      p("/Product3.jpg"),
     ],
     recommended: [
       {
@@ -31,24 +31,24 @@ const getProductData = (id: string) => {
         name: "TAILORED STRAIGHT TROUSERS",
         price: "$450",
         color: "ANTHRACITE",
-        image: "/Product3.jpg",
-        hoverImage: "/Product1-3.webp",
+        image: p("/Product3.jpg"),
+        hoverImage: p("/Product1-3.webp"),
       },
       {
         id: "4",
         name: "CASHMERE BLEND TURTLENECK",
         price: "$380",
         color: "BLACK",
-        image: "/Product4.jpg",
-        hoverImage: "/Product1-1.webp",
+        image: p("/Product4.jpg"),
+        hoverImage: p("/Product1-1.webp"),
       },
       {
         id: "5",
         name: "PREMIUM KNIT SWEATER",
         price: "$420",
         color: "ECRU",
-        image: "/1V6A2226.jpg",
-        hoverImage: "/lookbook2.png",
+        image: p("/1V6A2226.jpg"),
+        hoverImage: p("/lookbook2.png"),
       }
     ]
   };

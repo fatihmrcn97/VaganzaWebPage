@@ -1,8 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
-import { p } from "../data/site-content";
 import type { NavLink } from "../data/site-content";
 
 type NavbarProps = {
@@ -34,8 +34,8 @@ export function Navbar({ brand, links }: NavbarProps) {
           heading: "Explore by Category",
           links: ["View All", "Jackets and Coats", "Overshirts and Chore Jackets", "Knitwear"],
           images: [
-            { src: p("/1V6A2000_kopya.jpg"), title: "Discover Collection", subtitle: "Highlights" },
-            { src: p("/1V6A2226.jpg"), title: "Ready to Wear", subtitle: "Essentials" }
+            { src: "/1V6A2000_kopya.jpg", title: "Discover Collection", subtitle: "Highlights" },
+            { src: "/1V6A2226.jpg", title: "Ready to Wear", subtitle: "Essentials" }
           ]
         };
       case "SHOES":
@@ -44,12 +44,12 @@ export function Navbar({ brand, links }: NavbarProps) {
           heading: "Explore by Category",
           links: ["View All", "Sneakers", "Sandals and Espadrilles"],
           images: [
-            { src: p("/shoes1.jpg"), title: "Sneakers", subtitle: "Casual" },
-            { src: p("/shoes2.jpg"), title: "Loafers", subtitle: "Classic" },
-            { src: p("/shoes3.jpg"), title: "Boots", subtitle: "Winter" },
-            { src: p("/shoes4.jpg"), title: "Sandals", subtitle: "Summer" },
-            { src: p("/shoes5.jpg"), title: "Oxfords", subtitle: "Formal" },
-            { src: p("/shoes6.jpg"), title: "Derbies", subtitle: "Smart" },
+            { src: "/shoes1.jpg", title: "Sneakers", subtitle: "Casual" },
+            { src: "/shoes2.jpg", title: "Loafers", subtitle: "Classic" },
+            { src: "/shoes3.jpg", title: "Boots", subtitle: "Winter" },
+            { src: "/shoes4.jpg", title: "Sandals", subtitle: "Summer" },
+            { src: "/shoes5.jpg", title: "Oxfords", subtitle: "Formal" },
+            { src: "/shoes6.jpg", title: "Derbies", subtitle: "Smart" },
           ]
         };
       case "NEW IN":
@@ -59,9 +59,9 @@ export function Navbar({ brand, links }: NavbarProps) {
           heading: "Latest",
           links: ["New In", "Luxury Leisurewear", "Mocassin"],
           images: [
-            { src: p("/1V6A2496_kopya.jpg"), title: "The Spring Edit", subtitle: "Editorial" },
-            { src: p("/1V6A2226.jpg"), title: "New Arrivals", subtitle: "Wardrobe" },
-            { src: p("/leather2.jpg"), title: "Craftsmanship", subtitle: "Accessories" }
+            { src: "/1V6A2496_kopya.jpg", title: "The Spring Edit", subtitle: "Editorial" },
+            { src: "/1V6A2226.jpg", title: "New Arrivals", subtitle: "Wardrobe" },
+            { src: "/leather2.jpg", title: "Craftsmanship", subtitle: "Accessories" }
           ]
         };
     }
@@ -163,7 +163,7 @@ export function Navbar({ brand, links }: NavbarProps) {
               {dropdownData.layout === "asymmetric" && dropdownData.images.length >= 3 ? (
                 <div className="grid grid-cols-3 gap-4 lg:gap-6 h-[340px] lg:h-[400px]">
                   <Link href="#lookbook" className="col-span-2 group relative block w-full h-full overflow-hidden bg-neutral-100">
-                    <img src={dropdownData.images[0].src} alt={dropdownData.images[0].title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.03]" />
+                    <Image src={dropdownData.images[0].src} alt={dropdownData.images[0].title} fill className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.03]" />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
                     <div className="absolute bottom-5 left-5 text-white">
                       <div className="text-[9px] uppercase tracking-[0.2em] mb-1">{dropdownData.images[0].subtitle}</div>
@@ -174,7 +174,7 @@ export function Navbar({ brand, links }: NavbarProps) {
                   <div className="grid grid-rows-2 gap-4 lg:gap-6 h-full">
                     {dropdownData.images.slice(1, 3).map((img, idx) => (
                       <Link key={idx} href="#lookbook" className="group relative block w-full h-full overflow-hidden bg-neutral-100">
-                        <img src={img.src} alt={img.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.03]" />
+                        <Image src={img.src} alt={img.title} fill className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.03]" />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
                         <div className="absolute bottom-4 left-4 text-white">
                           <div className="text-[8px] uppercase tracking-[0.2em] mb-1">{img.subtitle}</div>
@@ -188,7 +188,7 @@ export function Navbar({ brand, links }: NavbarProps) {
                 <div className={`grid gap-4 lg:gap-6 min-h-[240px] ${dropdownData.images.length > 2 ? "grid-cols-3 grid-rows-2 h-[380px]" : "grid-cols-2 h-[260px]"}`}>
                   {dropdownData.images.map((img, idx) => (
                     <Link key={idx} href="#lookbook" className="group relative block w-full h-full overflow-hidden bg-neutral-100">
-                      <img src={img.src} alt={img.title} className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.03]" />
+                      <Image src={img.src} alt={img.title} fill className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-[1.03]" />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
                       <div className="absolute bottom-4 left-4 sm:bottom-5 sm:left-5 text-white">
                         <div className="text-[8px] uppercase tracking-[0.2em] mb-1">{img.subtitle}</div>

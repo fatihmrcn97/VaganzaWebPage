@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Navbar } from "../../components/navbar";
 import { Footer } from "../../components/footer";
-import { brandName, navigationLinks, footerColumns, socialLinks, p } from "../../data/site-content";
+import { brandName, navigationLinks, footerColumns, socialLinks } from "../../data/site-content";
 
 const products = [
   {
@@ -10,64 +10,64 @@ const products = [
     name: "TEXTURED LEATHER JACKET",
     price: "$1,200",
     color: "BLACK",
-    mainImage: p("/Product1.jpg"),
-    hoverImage: p("/Product1-1.webp"),
+    mainImage: "/Product1.jpg",
+    hoverImage: "/Product1-1.webp",
   },
   {
     id: 2,
     name: "OVERSIZED WOOL OVERCOAT",
     price: "$1,550",
     color: "CAMEL",
-    mainImage: p("/Product2.jpg"),
-    hoverImage: p("/Product1-2.webp"),
+    mainImage: "/Product2.jpg",
+    hoverImage: "/Product1-2.webp",
   },
   {
     id: 3,
     name: "TAILORED STRAIGHT TROUSERS",
     price: "$450",
     color: "ANTHRACITE",
-    mainImage: p("/Product3.jpg"),
-    hoverImage: p("/Product1-3.webp"),
+    mainImage: "/Product3.jpg",
+    hoverImage: "/Product1-3.webp",
   },
   {
     id: 4,
     name: "CASHMERE BLEND TURTLENECK",
     price: "$380",
     color: "BLACK",
-    mainImage: p("/Product4.jpg"),
-    hoverImage: p("/Product1-1.webp"),
+    mainImage: "/Product4.jpg",
+    hoverImage: "/Product1-1.webp",
   },
   {
     id: 5,
     name: "PREMIUM KNIT SWEATER",
     price: "$420",
     color: "ECRU",
-    mainImage: p("/1V6A2226.jpg"),
-    hoverImage: p("/lookbook2.png"),
+    mainImage: "/1V6A2226.jpg",
+    hoverImage: "/lookbook2.png",
   },
   {
     id: 6,
     name: "LEISURE TAILORED PANTS",
     price: "$510",
     color: "NAVY",
-    mainImage: p("/shoes2.jpg"),
-    hoverImage: p("/shoes3.jpg"),
+    mainImage: "/shoes2.jpg",
+    hoverImage: "/shoes3.jpg",
   },
   {
     id: 7,
     name: "RELAXED LINEN OVERSHIRT",
     price: "$390",
     color: "SAND",
-    mainImage: p("/lookbook5.png"),
-    hoverImage: p("/lookbook1.png"),
+    mainImage: "/lookbook5.png",
+    hoverImage: "/lookbook1.png",
   },
   {
     id: 8,
     name: "SLIM FIT POLO",
     price: "$280",
     color: "KHAKI",
-    mainImage: p("/1V6A2496_kopya.jpg"),
-    hoverImage: p("/leather2.jpg"),
+    mainImage: "/1V6A2496_kopya.jpg",
+    hoverImage: "/leather2.jpg",
   },
 ];
 
@@ -79,7 +79,7 @@ export default function ProductsPage() {
       {/* Category Header Hero */}
       <div className="relative w-full h-[40vh] sm:h-[50vh] bg-black isolate flex flex-col justify-center items-center">
         <Image 
-          src={p("/1V6A2000_kopya.jpg")} 
+          src="/1V6A2000_kopya.jpg" 
           alt="Mens New In Campaign" 
           fill 
           className="object-cover opacity-60 object-top"

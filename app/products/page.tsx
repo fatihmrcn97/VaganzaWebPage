@@ -10,7 +10,7 @@ const products = [
     name: "TEXTURED LEATHER JACKET",
     price: "$1,200",
     color: "BLACK",
-    mainImage: "/Product1.jpg",
+    mainImage: "/Product1.webp",
     hoverImage: "/Product1-1.webp",
   },
   {
@@ -18,7 +18,7 @@ const products = [
     name: "OVERSIZED WOOL OVERCOAT",
     price: "$1,550",
     color: "CAMEL",
-    mainImage: "/Product2.jpg",
+    mainImage: "/Product2.webp",
     hoverImage: "/Product1-2.webp",
   },
   {
@@ -26,7 +26,7 @@ const products = [
     name: "TAILORED STRAIGHT TROUSERS",
     price: "$450",
     color: "ANTHRACITE",
-    mainImage: "/Product3.jpg",
+    mainImage: "/Product3.webp",
     hoverImage: "/Product1-3.webp",
   },
   {
@@ -34,7 +34,7 @@ const products = [
     name: "CASHMERE BLEND TURTLENECK",
     price: "$380",
     color: "BLACK",
-    mainImage: "/Product4.jpg",
+    mainImage: "/Product4.webp",
     hoverImage: "/Product1-1.webp",
   },
   {
@@ -42,32 +42,32 @@ const products = [
     name: "PREMIUM KNIT SWEATER",
     price: "$420",
     color: "ECRU",
-    mainImage: "/1V6A2226.jpg",
-    hoverImage: "/lookbook2.png",
+    mainImage: "/1V6A2226.webp",
+    hoverImage: "/lookbook2.webp",
   },
   {
     id: 6,
     name: "LEISURE TAILORED PANTS",
     price: "$510",
     color: "NAVY",
-    mainImage: "/shoes2.jpg",
-    hoverImage: "/shoes3.jpg",
+    mainImage: "/shoes2.webp",
+    hoverImage: "/shoes3.webp",
   },
   {
     id: 7,
     name: "RELAXED LINEN OVERSHIRT",
     price: "$390",
     color: "SAND",
-    mainImage: "/lookbook5.png",
-    hoverImage: "/lookbook1.png",
+    mainImage: "/Lookbook5.webp",
+    hoverImage: "/lookbook1.webp",
   },
   {
     id: 8,
     name: "SLIM FIT POLO",
     price: "$280",
     color: "KHAKI",
-    mainImage: "/1V6A2496_kopya.jpg",
-    hoverImage: "/leather2.jpg",
+    mainImage: "/1V6A2496_kopya.webp",
+    hoverImage: "/leather2.webp",
   },
 ];
 
@@ -79,7 +79,7 @@ export default function ProductsPage() {
       {/* Category Header Hero */}
       <div className="relative w-full h-[40vh] sm:h-[50vh] bg-black isolate flex flex-col justify-center items-center">
         <Image 
-          src="/1V6A2000_kopya.jpg" 
+          src="/1V6A2000_kopya.webp" 
           alt="Mens New In Campaign" 
           fill 
           className="object-cover opacity-60 object-top"

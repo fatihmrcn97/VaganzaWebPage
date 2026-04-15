@@ -35,8 +35,8 @@ export function Navbar({ brand, links }: NavbarProps) {
           heading: "Explore by Category",
           links: ["View All", "Jackets and Coats", "Overshirts and Chore Jackets", "Knitwear"],
           images: [
-            { src: p("/1V6A2000_kopya.jpg"), title: "Discover Collection", subtitle: "Highlights" },
-            { src: p("/1V6A2226.jpg"), title: "Ready to Wear", subtitle: "Essentials" }
+            { src: p("/1V6A2000_kopya.webp"), title: "Discover Collection", subtitle: "Highlights" },
+            { src: p("/1V6A2226.webp"), title: "Ready to Wear", subtitle: "Essentials" }
           ]
         };
       case "SHOES":
@@ -45,12 +45,12 @@ export function Navbar({ brand, links }: NavbarProps) {
           heading: "Explore by Category",
           links: ["View All", "Sneakers", "Sandals and Espadrilles"],
           images: [
-            { src: p("/shoes1.jpg"), title: "Sneakers", subtitle: "Casual" },
-            { src: p("/shoes2.jpg"), title: "Loafers", subtitle: "Classic" },
-            { src: p("/shoes3.jpg"), title: "Boots", subtitle: "Winter" },
-            { src: p("/shoes4.jpg"), title: "Sandals", subtitle: "Summer" },
-            { src: p("/shoes5.jpg"), title: "Oxfords", subtitle: "Formal" },
-            { src: p("/shoes6.jpg"), title: "Derbies", subtitle: "Smart" },
+            { src: p("/shoes1.webp"), title: "Sneakers", subtitle: "Casual" },
+            { src: p("/shoes2.webp"), title: "Loafers", subtitle: "Classic" },
+            { src: p("/shoes3.webp"), title: "Boots", subtitle: "Winter" },
+            { src: p("/shoes4.webp"), title: "Sandals", subtitle: "Summer" },
+            { src: p("/shoes5.webp"), title: "Oxfords", subtitle: "Formal" },
+            { src: p("/shoes6.webp"), title: "Derbies", subtitle: "Smart" },
           ]
         };
       case "NEW IN":
@@ -60,9 +60,9 @@ export function Navbar({ brand, links }: NavbarProps) {
           heading: "Latest",
           links: ["New In", "Luxury Leisurewear", "Mocassin"],
           images: [
-            { src: p("/1V6A2496_kopya.jpg"), title: "The Spring Edit", subtitle: "Editorial" },
-            { src: p("/1V6A2226.jpg"), title: "New Arrivals", subtitle: "Wardrobe" },
-            { src: p("/leather2.jpg"), title: "Craftsmanship", subtitle: "Accessories" }
+            { src: p("/1V6A2496_kopya.webp"), title: "The Spring Edit", subtitle: "Editorial" },
+            { src: p("/1V6A2226.webp"), title: "New Arrivals", subtitle: "Wardrobe" },
+            { src: p("/leather2.webp"), title: "Craftsmanship", subtitle: "Accessories" }
           ]
         };
     }

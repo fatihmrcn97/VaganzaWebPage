@@ -20,10 +20,10 @@ const getProductData = (id: string) => {
       "Made in Italy"
     ],
     gallery: [
-      "/Product1.jpg",
+      "/Product1.webp",
       "/Product1-1.webp",
-      "/Product2.jpg",
-      "/Product3.jpg",
+      "/Product2.webp",
+      "/Product3.webp",
     ],
     recommended: [
       {
@@ -31,7 +31,7 @@ const getProductData = (id: string) => {
         name: "TAILORED STRAIGHT TROUSERS",
         price: "$450",
         color: "ANTHRACITE",
-        image: "/Product3.jpg",
+        image: "/Product3.webp",
         hoverImage: "/Product1-3.webp",
       },
       {
@@ -39,7 +39,7 @@ const getProductData = (id: string) => {
         name: "CASHMERE BLEND TURTLENECK",
         price: "$380",
         color: "BLACK",
-        image: "/Product4.jpg",
+        image: "/Product4.webp",
         hoverImage: "/Product1-1.webp",
       },
       {
@@ -47,8 +47,8 @@ const getProductData = (id: string) => {
         name: "PREMIUM KNIT SWEATER",
         price: "$420",
         color: "ECRU",
-        image: "/1V6A2226.jpg",
-        hoverImage: "/lookbook2.png",
+        image: "/1V6A2226.webp",
+        hoverImage: "/lookbook2.webp",
       }
     ]
   };

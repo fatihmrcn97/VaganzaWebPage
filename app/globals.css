@@ -84,6 +84,22 @@ input {
     mask-image: linear-gradient(to bottom, transparent 0%, black 14%, black 88%, transparent 100%);
   }
 
+  /* GPU-accelerated slow zoom for hero background images */
+  .hero-slow-zoom {
+    animation: heroSlowZoom 18s ease-in-out infinite alternate;
+    will-change: transform;
+    transform: translateZ(0);
+  }
+
+  @keyframes heroSlowZoom {
+    0% {
+      transform: scale(1.02) translateZ(0);
+    }
+    100% {
+      transform: scale(1.06) translateZ(0);
+    }
+  }
+
   .bg-editorial-grid {
     background-image:
       linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),

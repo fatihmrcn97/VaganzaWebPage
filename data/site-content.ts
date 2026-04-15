@@ -142,7 +142,7 @@ export const heroPrimary: HeroPrimaryContent = {
       variant: "editorial",
       alignment: "right-copy",
       label: "Campaign 02",
-      backgroundImage: "/1V6A2000_kopya.jpg",
+      backgroundImage: "/VaganzaPhotos/noManSlider2Bg.png",
       backgroundAlt: "Vaganza editorial background",
       leftCard: {
         image: "/1V6A2496_kopya.jpg",
@@ -152,7 +152,7 @@ export const heroPrimary: HeroPrimaryContent = {
         buttonLabel: "LOOKBOOK",
       },
       centerCard: {
-        image: "/1V6A2000_kopya.jpg",
+        image: "/VaganzaPhotos/noManSlider2Bg.png",
         imageAlt: "Vaganza editorial story photo 02",
         title: "SPRING | SUMMER 2026",
         subtitle: "SHOW THE COLLECTION",

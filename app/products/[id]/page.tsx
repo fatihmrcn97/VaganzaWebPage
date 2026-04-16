@@ -194,52 +194,6 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
         
         </div>
 
-        {/* Complete The Look Section */}
-        <div className="mt-32 lg:mt-40 border-t border-neutral-100 pt-20">
-          <div className="flex justify-between items-end mb-12">
-            <div>
-              <h2 className="text-lg sm:text-xl uppercase tracking-[0.2em] font-serif">Complete The Look</h2>
-              <p className="text-[10px] uppercase tracking-[0.2em] text-neutral-500 mt-2">Perfectly matched additions to your wardrobe.</p>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-4">
-            {product.recommended.map((rec) => (
-              <Link key={rec.id} href={`/products/${rec.id}`} className="group flex flex-col cursor-pointer">
-                <div className="relative aspect-[3/4] w-full overflow-hidden bg-neutral-100 mb-4 sm:mb-6">
-                  <Image 
-                    src={rec.hoverImage} 
-                    alt={`${rec.name} alternate`} 
-                    fill 
-                    className="object-cover object-center absolute inset-0 z-0"
-                  />
-                  <Image 
-                    src={rec.image} 
-                    alt={rec.name} 
-                    fill 
-                    className="object-cover object-center transition-opacity duration-700 ease-in-out group-hover:opacity-0 relative z-10"
-                  />
-                  <div className="absolute top-4 right-4 z-20 text-[9px] uppercase tracking-widest bg-white/90 backdrop-blur px-3 py-1">
-                    New
-                  </div>
-                </div>
-                <div className="flex justify-between items-start gap-4 px-1">
-                  <div>
-                    <h3 className="text-[9px] sm:text-[10px] uppercase tracking-[0.1em] text-neutral-900 font-medium leading-tight mb-1">
-                      {rec.name}
-                    </h3>
-                    <p className="text-[9px] uppercase tracking-[0.15em] text-neutral-500">
-                      {rec.color}
-                    </p>
-                  </div>
-                  <p className="text-[10px] sm:text-[11px] tracking-wider text-neutral-600 font-light">
-                    {rec.price}
-                  </p>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
       </div>
 
       <Footer brand={brandName} columns={footerColumns} socialLinks={socialLinks} />

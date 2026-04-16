@@ -10,6 +10,7 @@ const products = [
     name: "TEXTURED LEATHER JACKET",
     price: "$1,200",
     color: "BLACK",
+    colors: ["#000000", "#1B2F48"],
     mainImage: p("/Product1.jpg"),
     hoverImage: p("/Product1-1.webp"),
   },
@@ -18,6 +19,7 @@ const products = [
     name: "OVERSIZED WOOL OVERCOAT",
     price: "$1,550",
     color: "CAMEL",
+    colors: ["#A87C4F", "#000000", "#8E918F"],
     mainImage: p("/Product2.jpg"),
     hoverImage: p("/Product1-2.webp"),
   },
@@ -26,6 +28,7 @@ const products = [
     name: "TAILORED STRAIGHT TROUSERS",
     price: "$450",
     color: "ANTHRACITE",
+    colors: ["#4A4A4A", "#1B2F48", "#000000"],
     mainImage: p("/Product3.jpg"),
     hoverImage: p("/Product1-3.webp"),
   },
@@ -34,6 +37,7 @@ const products = [
     name: "CASHMERE BLEND TURTLENECK",
     price: "$380",
     color: "BLACK",
+    colors: ["#000000", "#FFFFFF", "#8E918F"],
     mainImage: p("/Product4.jpg"),
     hoverImage: p("/Product1-1.webp"),
   },
@@ -42,6 +46,7 @@ const products = [
     name: "PREMIUM KNIT SWEATER",
     price: "$420",
     color: "ECRU",
+    colors: ["#D9C5A0", "#1B2F48", "#2A4232"],
     mainImage: p("/1V6A2226.jpg"),
     hoverImage: p("/lookbook2.png"),
   },
@@ -50,6 +55,7 @@ const products = [
     name: "LEISURE TAILORED PANTS",
     price: "$510",
     color: "NAVY",
+    colors: ["#1B2F48", "#4A4A4A", "#000000"],
     mainImage: p("/shoes2.jpg"),
     hoverImage: p("/shoes3.jpg"),
   },
@@ -58,6 +64,7 @@ const products = [
     name: "RELAXED LINEN OVERSHIRT",
     price: "$390",
     color: "SAND",
+    colors: ["#C2B280", "#FFFFFF", "#4682B4"],
     mainImage: p("/lookbook5.png"),
     hoverImage: p("/lookbook1.png"),
   },
@@ -66,6 +73,7 @@ const products = [
     name: "SLIM FIT POLO",
     price: "$280",
     color: "KHAKI",
+    colors: ["#BDB76B", "#1B2F48", "#7E1A1A"],
     mainImage: p("/1V6A2496_kopya.jpg"),
     hoverImage: p("/leather2.jpg"),
   },
@@ -147,6 +155,17 @@ export default function ProductsPage() {
                   <p className="text-[10px] sm:text-[11px] tracking-wider text-neutral-600">
                     {product.price}
                   </p>
+                </div>
+
+                {/* Color Options Bar */}
+                <div className="flex gap-1.5 mt-2.5 mb-1.5">
+                  {product.colors.map((c, i) => (
+                    <div 
+                      key={i} 
+                      className={`w-3 h-3 rounded-[1px] border border-neutral-100 shadow-sm transition-transform hover:scale-110 cursor-pointer ${i === 0 ? 'ring-[0.5px] ring-neutral-400 ring-offset-1' : ''}`} 
+                      style={{ backgroundColor: c }}
+                    />
+                  ))}
                 </div>
                 <div className="mt-1.5 flex justify-between items-center text-[9px] sm:text-[10px] uppercase tracking-[0.15em] text-neutral-500">
                   <p>{product.color}</p>

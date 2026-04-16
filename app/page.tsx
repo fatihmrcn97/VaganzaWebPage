@@ -4,8 +4,10 @@ import { Navbar } from "../components/navbar";
 import { NewsletterSection } from "../components/newsletter-section";
 import { ProductShowcase } from "../components/product-showcase";
 import { StoreSection } from "../components/store-section";
+import { FeaturedProducts } from "../components/featured-products";
 import {
   brandName,
+  featuredProducts,
   footerColumns,
   heroPrimary,
   navigationLinks,
@@ -22,6 +24,7 @@ export default function Home() {
       <div className="relative isolate">
         <HeroPrimary content={heroPrimary} />
       </div>
+      <FeaturedProducts products={featuredProducts} />
       <ProductShowcase content={productShowcase} />
       <NewsletterSection content={newsletterContent} />
       <StoreSection content={storeSection} />

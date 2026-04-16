@@ -393,7 +393,7 @@ function EditorialHeroSlide({ slide }: { slide: HeroEditorialSlide }) {
                 transition={{ delay: 0.7, duration: 1.0, ease: EASE_LUXURY }}
                 className="absolute inset-x-4 bottom-10 text-center sm:inset-x-5 sm:bottom-12 md:bottom-16 lg:bottom-24 transition-transform duration-500 group-hover:scale-[1.01]"
               >
-                <h2 className="font-serif text-[1.1rem] sm:text-[1.3rem] md:text-[1.6rem] lg:text-[2.6rem] uppercase tracking-[0.08em] text-white">
+                <h2 className="font-serif text-[0.66rem] sm:text-[0.78rem] md:text-[0.96rem] lg:text-[1.56rem] uppercase tracking-[0.08em] text-white">
                   {slide.centerCard.title}
                 </h2>
                 <motion.p 

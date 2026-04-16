@@ -102,6 +102,14 @@ export type SocialLink = {
   label: string;
 };
 
+export type FeaturedProduct = {
+  id: string;
+  name: string;
+  price: string;
+  image: string;
+  colors: string[];
+};
+
 const unsplashDownload = (photoId: string, width: number) =>
   `https://unsplash.com/photos/${photoId}/download?force=true&w=${width}&q=80`;
 
@@ -227,10 +235,40 @@ export const productShowcase: ProductShowcaseContent = {
       price: "4.900 TL",
       image: p("/leather parfume.jpg"),
       imageAlt: "Vaganza Leather Parfume",
-      objectPosition: "center center",
     },
   ],
 };
+
+export const featuredProducts: FeaturedProduct[] = [
+  {
+    id: "fp1",
+    name: "POLYAMIDE KARIŞIMLI BAĞCIKLI ERKEK PANTOLON",
+    price: "3.950,00 TL",
+    image: p("/1V6A2000_kopya.webp"),
+    colors: ["#3d3d3d", "#5c4d3d", "#8c7a5f"],
+  },
+  {
+    id: "fp2",
+    name: "TENCEL KARIŞIMLI MODERN KESİM ERKEK PANTOLON",
+    price: "4.500,00 TL",
+    image: p("/1V6A2496_kopya.webp"),
+    colors: ["#e3e3e3", "#b8a48c", "#5c4d3d"],
+  },
+  {
+    id: "fp3",
+    name: "YÜKSEK TABANLI DERİ AYAKKABI",
+    price: "1.500,00 TL",
+    image: p("/shoes1.webp"),
+    colors: ["#000000", "#5c4d3d", "#add8e6"],
+  },
+  {
+    id: "fp4",
+    name: "DERİ DETAYLI HASIR KEMER",
+    price: "1.500,00 TL",
+    image: p("/Product3.webp"),
+    colors: ["#000000", "#5c4d3d", "#add8e6", "#f5f5dc"],
+  },
+];
 
 export const newsletterContent: NewsletterContent = {
   heading: "NEWSLETTER",
